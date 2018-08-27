@@ -1,0 +1,1529 @@
+	None
+
+
+
+
+call graph profile:
+          The sum of self and descendents is the major sort
+          for this listing.
+
+          function entries:
+
+index     the index of the function in the call graph
+          listing, as an aid to locating it (see below).
+
+%time     the percentage of the total time of the program
+          accounted for by this function and its
+          descendents.
+
+self      the number of seconds spent in this function
+          itself.
+
+descendents
+          the number of seconds spent in the descendents of
+          this function on behalf of this function.
+
+called    the number of times this function is called (other
+          than recursive calls).
+
+self      the number of times this function calls itself
+          recursively.
+
+name      the name of the function, with an indication of
+          its membership in a cycle, if any.
+
+index     the index of the function in the call graph
+          listing, as an aid to locating it.
+
+
+
+          parent listings:
+
+self*     the number of seconds of this function's self time
+          which is due to calls from this parent.
+
+descendents*
+          the number of seconds of this function's
+          descendent time which is due to calls from this
+          parent.
+
+called**  the number of times this function is called by
+          this parent.  This is the numerator of the
+          fraction which divides up the function's time to
+          its parents.
+
+total*    the number of times this function was called by
+          all of its parents.  This is the denominator of
+          the propagation fraction.
+
+parents   the name of this parent, with an indication of the
+          parent's membership in a cycle, if any.
+
+index     the index of this parent in the call graph
+          listing, as an aid in locating it.
+
+
+
+          children listings:
+
+self*     the number of seconds of this child's self time
+          which is due to being called by this function.
+
+descendent*
+          the number of seconds of this child's descendent's
+          time which is due to being called by this
+          function.
+
+called**  the number of times this child is called by this
+          function.  This is the numerator of the
+          propagation fraction for this child.
+
+total*    the number of times this child is called by all
+          functions.  This is the denominator of the
+          propagation fraction.
+
+children  the name of this child, and an indication of its
+          membership in a cycle, if any.
+
+index     the index of this child in the call graph listing,
+          as an aid to locating it.
+
+
+
+          * these fields are omitted for parents (or
+          children) in the same cycle as the function.  If
+          the function (or child) is a member of a cycle,
+          the propagated times and propagation denominator
+          represent the self time and descendent time of the
+          cycle as a whole.
+
+          ** static-only parents and children are indicated
+          by a call count of 0.
+
+
+
+          cycle listings:
+          the cycle as a whole is listed with the same
+          fields as a function entry.  Below it are listed
+          the members of the cycle, and their contributions
+          to the time and call counts of the cycle.
+
+
+granularity: each sample hit covers 4 byte(s) for 0.05% of 2.02 seconds
+
+                                  called/total       parents 
+index  %time    self descendents  called+self    name    	index
+                                  called/total       children
+
+                                                     <spontaneous>
+[1]    100.0    0.01        2.02                 main [1]
+                0.00        2.01   30000/30000       _ZN7CX_BASE6DeleteEl [2]
+                0.00        0.00   30000/30000       rand [50]
+                0.00        0.00       1/1           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       4/4           printf [60]
+                0.00        0.00       1/1           _ZN7CX_BASED1Ev [62]
+                0.00        0.00       2/2           time [107]
+                0.00        0.00       1/2           _Znwj [1275]
+                0.00        0.00       1/2           _ZdlPv [1274]
+
+-----------------------------------------------
+
+                0.00        2.01   30000/30000       main [1]
+[2]     99.7    0.00        2.01   30000         _ZN7CX_BASE6DeleteEl [2]
+                0.00        0.92   29546/29546       _ZN7CX_BASE13Delete_RecordEli [3]
+                0.00        0.87   29546/29546       _ZN7CX_BASE11Delete_TreeEli [4]
+                0.00        0.10   30000/30000       _ZN7CX_BASE9Check_DelEl [21]
+                0.00        0.06   59092/88638       _ZN7CX_BASE5WlockEli [23]
+                0.00        0.05   59092/88638       _ZN7CX_BASE6UnlockEli [25]
+                0.00        0.00   29546/29546       _ZN7CX_BASE8variableEP2sti [46]
+                0.00        0.00   59092/59092       _ZN7CX_BASE15Get_Field_DescrEi [48]
+
+-----------------------------------------------
+
+                0.00        0.92   29546/29546       _ZN7CX_BASE6DeleteEl [2]
+[3]     45.9    0.00        0.92   29546         _ZN7CX_BASE13Delete_RecordEli [3]
+                0.00        0.39   59091/59091       _ZN7CX_BASE8Put_NodeEli4node [10]
+                0.00        0.19   59092/59092       _ZN7CX_BASE8Get_NodeEli [16]
+                0.00        0.19   29546/118183      _ZN7CX_BASE7Put_BufEP2fdxiPc [5]
+                0.00        0.09   29546/207323      _ZN7CX_BASE7Get_BufEP2fdxi [8]
+                0.00        0.03   29546/88638       _ZN7CX_BASE5WlockEli [23]
+                0.00        0.02   29546/88638       _ZN7CX_BASE6UnlockEli [25]
+                0.00        0.00   29546/88685       bcopy [42]
+
+-----------------------------------------------
+
+                0.00        0.87   29546/29546       _ZN7CX_BASE6DeleteEl [2]
+[4]     43.2    0.00        0.87   29546         _ZN7CX_BASE11Delete_TreeEli [4]
+                0.00        0.47   29546/29546       _ZN5BTree6DeleteEPcl [9]
+                0.00        0.19   29546/118183      _ZN7CX_BASE7Put_BufEP2fdxiPc [5]
+                0.00        0.09   29546/207323      _ZN7CX_BASE7Get_BufEP2fdxi [8]
+                0.00        0.08   29546/147730      _ZN5BTree9Read_PageEi [11]
+                0.00        0.03   29546/29546       _ZN5BPage7get_posEl [29]
+                0.00        0.00   29546/4267283     _ZN5BPage3posEi [28]
+                0.00        0.00   29546/29547       _Z8int_convPci [1263]
+
+-----------------------------------------------
+
+                0.00        0.19   29546/118183      _ZN7CX_BASE13Delete_RecordEli [3]
+                0.00        0.19   29546/118183      _ZN7CX_BASE11Delete_TreeEli [4]
+                0.01        0.37   59091/118183      _ZN7CX_BASE8Put_NodeElP3sla4node [12]
+[5]     37.8    0.02        0.75  118183         _ZN7CX_BASE7Put_BufEP2fdxiPc [5]
+                0.52        0.00  118183/147725      __sys_write [7]
+                0.01        0.17   59139/207323      _ZN7CX_BASE7Get_BufEP2fdxi [8]
+                0.00        0.04  118183/353607      lseek [18]
+                0.00        0.00   59139/88685       bcopy [42]
+
+-----------------------------------------------
+
+                0.00        0.00       1/205891      _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/205891      _Z7if_basePcS_ [66]
+                0.00        0.00       1/205891      _Z10get_weightv [71]
+                0.00        0.00       1/205891      arc4_stir [69]
+                0.21        0.00   57773/205891      _ZN5BTree9Read_PageEi [11]
+                0.54        0.00  148114/205891      _ZN7CX_BASE7Get_BufEP2fdxi [8]
+[6]     37.4    0.76        0.00  205891         _read [6]
+
+-----------------------------------------------
+
+                0.00        0.00       5/147725      __swrite [57]
+                0.13        0.00   29537/147725      _ZN5BTree5FlushEP5BPage [17]
+                0.52        0.00  118183/147725      _ZN7CX_BASE7Put_BufEP2fdxiPc [5]
+[7]     32.1    0.65        0.00  147725         __sys_write [7]
+
+-----------------------------------------------
+
+                0.00        0.09   29546/207323      _ZN7CX_BASE13Delete_RecordEli [3]
+                0.00        0.09   29546/207323      _ZN7CX_BASE11Delete_TreeEli [4]
+                0.01        0.17   59139/207323      _ZN7CX_BASE7Put_BufEP2fdxiPc [5]
+                0.01        0.26   89092/207323      _ZN7CX_BASE8Get_NodeElP3sla [14]
+[8]     31.0    0.03        0.60  207323         _ZN7CX_BASE7Get_BufEP2fdxi [8]
+                0.54        0.00  148114/205891      _read [6]
+                0.00        0.06  148114/353607      lseek [18]
+                0.00        0.00       1/16          free [87]
+                0.00        0.00       1/14          malloc [88]
+
+-----------------------------------------------
+
+                0.00        0.47   29546/29546       _ZN7CX_BASE11Delete_TreeEli [4]
+[9]     23.3    0.00        0.47   29546         _ZN5BTree6DeleteEPcl [9]
+                0.00        0.37   29546/29546       _ZN5BTree9Find_PageEPclPii [13]
+                0.00        0.09   29546/29546       _ZN5BTree6DeleteEPclli [22]
+
+-----------------------------------------------
+
+                0.00        0.39   59091/59091       _ZN7CX_BASE13Delete_RecordEli [3]
+[10]    19.5    0.00        0.39   59091         _ZN7CX_BASE8Put_NodeEli4node [10]
+                0.00        0.38   59091/59091       _ZN7CX_BASE8Put_NodeElP3sla4node [12]
+
+-----------------------------------------------
+
+                0.00        0.08   29546/147730      _ZN5BTree6DeleteEPclli [22]
+                0.00        0.08   29546/147730      _ZN7CX_BASE11Delete_TreeEli [4]
+                0.01        0.23   88638/147730      _ZN5BTree9Find_PageEPclPii [13]
+[11]    19.4    0.01        0.38  147730         _ZN5BTree9Read_PageEi [11]
+                0.21        0.00   57773/205891      _read [6]
+                0.00        0.14   29535/29537       _ZN5BTree5FlushEP5BPage [17]
+                0.00        0.02   57773/353607      lseek [18]
+                0.00        0.00   29546/59092       _ZN5BTree9Root_PageEv [1262]
+
+-----------------------------------------------
+
+                0.00        0.38   59091/59091       _ZN7CX_BASE8Put_NodeEli4node [10]
+[12]    19.3    0.00        0.38   59091         _ZN7CX_BASE8Put_NodeElP3sla4node [12]
+                0.01        0.37   59091/118183      _ZN7CX_BASE7Put_BufEP2fdxiPc [5]
+                0.00        0.00   59091/148183      _ZN7CX_BASE15Get_Field_DescrEP3sla [36]
+
+-----------------------------------------------
+
+                0.00        0.37   29546/29546       _ZN5BTree6DeleteEPcl [9]
+[13]    18.6    0.00        0.37   29546         _ZN5BTree9Find_PageEPclPii [13]
+                0.01        0.23   88638/147730      _ZN5BTree9Read_PageEi [11]
+                0.01        0.05   88638/88638       _ZN5BPage8find_posEPcilPi [26]
+                0.00        0.03   29546/29546       _ZN5BTree4LockEi [30]
+                0.00        0.03   29546/29546       _ZN5BTree6UnlockEi [32]
+                0.00        0.00   29546/59100       memset [40]
+                0.00        0.00   58084/4267283     _ZN5BPage3posEi [28]
+                0.00        0.00   29546/59092       _ZN5BTree9Root_PageEv [1262]
+
+-----------------------------------------------
+
+                0.00        0.09   30000/89092       _ZN7CX_BASE8Get_NodeEl [20]
+                0.01        0.19   59092/89092       _ZN7CX_BASE8Get_NodeEli [16]
+[14]    14.3    0.01        0.28   89092         _ZN7CX_BASE8Get_NodeElP3sla [14]
+                0.01        0.26   89092/207323      _ZN7CX_BASE7Get_BufEP2fdxi [8]
+                0.01        0.00   89092/89092       _Z7bincopyPKvPvi [37]
+                0.00        0.00   89092/148183      _ZN7CX_BASE15Get_Field_DescrEP3sla [36]
+
+-----------------------------------------------
+
+                0.03        0.00   29546/177276      _ZN5BTree4LockEi [30]
+                0.03        0.00   29546/177276      _ZN5BTree6UnlockEi [32]
+                0.07        0.00   59092/177276      _ZN7CX_BASE6UnlockEli [25]
+                0.07        0.00   59092/177276      _ZN7CX_BASE5_LockElii [24]
+[15]    10.1    0.21        0.00  177276         __sys_fcntl [15]
+
+-----------------------------------------------
+
+                0.00        0.19   59092/59092       _ZN7CX_BASE13Delete_RecordEli [3]
+[16]     9.6    0.00        0.19   59092         _ZN7CX_BASE8Get_NodeEli [16]
+                0.01        0.19   59092/89092       _ZN7CX_BASE8Get_NodeElP3sla [14]
+
+-----------------------------------------------
+
+                0.00        0.00       2/29537       _ZN5BTreeD1Ev [63]
+                0.00        0.14   29535/29537       _ZN5BTree9Read_PageEi [11]
+[17]     7.1    0.00        0.14   29537         _ZN5BTree5FlushEP5BPage [17]
+                0.13        0.00   29537/147725      __sys_write [7]
+                0.00        0.01   29537/353607      lseek [18]
+
+-----------------------------------------------
+
+                0.00        0.01   29537/353607      _ZN5BTree5FlushEP5BPage [17]
+                0.00        0.02   57773/353607      _ZN5BTree9Read_PageEi [11]
+                0.00        0.04  118183/353607      _ZN7CX_BASE7Put_BufEP2fdxiPc [5]
+                0.00        0.06  148114/353607      _ZN7CX_BASE7Get_BufEP2fdxi [8]
+[18]     6.8    0.00        0.13  353607         lseek [18]
+                0.13        0.00  353607/353609      ___syscall [19]
+
+-----------------------------------------------
+
+                0.00        0.00       1/353609      mmap [75]
+                0.00        0.00       1/353609      ftruncate [74]
+                0.13        0.00  353607/353609      lseek [18]
+[19]     6.6    0.13        0.00  353609         ___syscall [19]
+
+-----------------------------------------------
+
+                0.00        0.10   30000/30000       _ZN7CX_BASE9Check_DelEl [21]
+[20]     4.9    0.00        0.10   30000         _ZN7CX_BASE8Get_NodeEl [20]
+                0.00        0.09   30000/89092       _ZN7CX_BASE8Get_NodeElP3sla [14]
+
+-----------------------------------------------
+
+                0.00        0.10   30000/30000       _ZN7CX_BASE6DeleteEl [2]
+[21]     4.9    0.00        0.10   30000         _ZN7CX_BASE9Check_DelEl [21]
+                0.00        0.10   30000/30000       _ZN7CX_BASE8Get_NodeEl [20]
+
+-----------------------------------------------
+
+                0.00        0.09   29546/29546       _ZN5BTree6DeleteEPcl [9]
+[22]     4.7    0.00        0.09   29546         _ZN5BTree6DeleteEPclli [22]
+                0.00        0.08   29546/147730      _ZN5BTree9Read_PageEi [11]
+                0.00        0.01   29546/29546       _ZN5BPage3delEi [34]
+                0.00        0.00   29546/29546       _ZN5BTree10Write_PageEP5BPage [44]
+
+-----------------------------------------------
+
+                0.00        0.03   29546/88638       _ZN7CX_BASE13Delete_RecordEli [3]
+                0.00        0.06   59092/88638       _ZN7CX_BASE6DeleteEl [2]
+[23]     4.2    0.00        0.08   88638         _ZN7CX_BASE5WlockEli [23]
+                0.00        0.08   88638/88638       _ZN7CX_BASE5_LockElii [24]
+
+-----------------------------------------------
+
+                0.00        0.08   88638/88638       _ZN7CX_BASE5WlockEli [23]
+[24]     4.2    0.00        0.08   88638         _ZN7CX_BASE5_LockElii [24]
+                0.07        0.00   59092/177276      __sys_fcntl [15]
+                0.01        0.00   88638/88639       _ZN7CX_BASE8flush_sbEv [38]
+                0.00        0.00   88638/177276      _ZN7CX_BASE11_Check_LockEliPi [41]
+                0.00        0.00   59092/59092       _ZN7CX_BASE8add_lockElii [45]
+
+-----------------------------------------------
+
+                0.00        0.02   29546/88638       _ZN7CX_BASE13Delete_RecordEli [3]
+                0.00        0.05   59092/88638       _ZN7CX_BASE6DeleteEl [2]
+[25]     3.8    0.01        0.07   88638         _ZN7CX_BASE6UnlockEli [25]
+                0.07        0.00   59092/177276      __sys_fcntl [15]
+                0.00        0.00   88638/177276      _ZN7CX_BASE11_Check_LockEliPi [41]
+                0.00        0.00   59092/59092       _ZN7CX_BASE8del_lockEli [51]
+
+-----------------------------------------------
+
+                0.01        0.05   88638/88638       _ZN5BTree9Find_PageEPclPii [13]
+[26]     3.2    0.01        0.05   88638         _ZN5BPage8find_posEPcilPi [26]
+                0.01        0.04  567614/567614      _ZN5BPage3cmpEPciS0_il [27]
+                0.01        0.00  567614/4267283     _ZN5BPage3posEi [28]
+                0.00        0.00  567614/567614      _ZN5BPage3lenEi [43]
+
+-----------------------------------------------
+
+                0.01        0.04  567614/567614      _ZN5BPage8find_posEPcilPi [26]
+[27]     2.1    0.01        0.04  567614         _ZN5BPage3cmpEPciS0_il [27]
+                0.02        0.02  567614/567614      _Z7CompareP5fieldPcS1_i [31]
+
+-----------------------------------------------
+
+                0.00        0.00   29546/4267283     _ZN7CX_BASE11Delete_TreeEli [4]
+                0.00        0.00   58084/4267283     _ZN5BTree9Find_PageEPclPii [13]
+                0.01        0.00  567614/4267283     _ZN5BPage8find_posEPcilPi [26]
+                0.03        0.00 3612039/4267283     _ZN5BPage7get_posEl [29]
+[28]     2.0    0.04        0.00 4267283         _ZN5BPage3posEi [28]
+
+-----------------------------------------------
+
+                0.00        0.03   29546/29546       _ZN7CX_BASE11Delete_TreeEli [4]
+[29]     1.9    0.00        0.03   29546         _ZN5BPage7get_posEl [29]
+                0.03        0.00 3612039/4267283     _ZN5BPage3posEi [28]
+
+-----------------------------------------------
+
+                0.00        0.03   29546/29546       _ZN5BTree9Find_PageEPclPii [13]
+[30]     1.8    0.00        0.03   29546         _ZN5BTree4LockEi [30]
+                0.03        0.00   29546/177276      __sys_fcntl [15]
+
+-----------------------------------------------
+
+                0.02        0.02  567614/567614      _ZN5BPage3cmpEPciS0_il [27]
+[31]     1.7    0.02        0.02  567614         _Z7CompareP5fieldPcS1_i [31]
+                0.02        0.00  567614/567614      _Z7strcmpwPKcS0_i [33]
+
+-----------------------------------------------
+
+                0.00        0.03   29546/29546       _ZN5BTree9Find_PageEPclPii [13]
+[32]     1.7    0.00        0.03   29546         _ZN5BTree6UnlockEi [32]
+                0.03        0.00   29546/177276      __sys_fcntl [15]
+
+-----------------------------------------------
+
+                0.02        0.00  567614/567614      _Z7CompareP5fieldPcS1_i [31]
+[33]     1.0    0.02        0.00  567614         _Z7strcmpwPKcS0_i [33]
+                0.00        0.00       1/1           _Z10get_weightv [71]
+
+-----------------------------------------------
+
+                0.00        0.01   29546/29546       _ZN5BTree6DeleteEPclli [22]
+[34]     0.6    0.00        0.01   29546         _ZN5BPage3delEi [34]
+                0.01        0.00   29546/29546       memmove [35]
+                0.00        0.00   29546/59100       memset [40]
+
+-----------------------------------------------
+
+                0.01        0.00   29546/29546       _ZN5BPage3delEi [34]
+[35]     0.5    0.01        0.00   29546         memmove [35]
+
+-----------------------------------------------
+
+                0.00        0.00   59091/148183      _ZN7CX_BASE8Put_NodeElP3sla4node [12]
+                0.00        0.00   89092/148183      _ZN7CX_BASE8Get_NodeElP3sla [14]
+[36]     0.4    0.00        0.00  148183         _ZN7CX_BASE15Get_Field_DescrEP3sla [36]
+                0.00        0.00  148183/207275      _ZN7CX_BASE15Get_Field_DescrEP2stP3sla [39]
+
+-----------------------------------------------
+
+                0.01        0.00   89092/89092       _ZN7CX_BASE8Get_NodeElP3sla [14]
+[37]     0.3    0.01        0.00   89092         _Z7bincopyPKvPvi [37]
+
+-----------------------------------------------
+
+                0.00        0.00       1/88639       _ZN7CX_BASE6updateEv [77]
+                0.01        0.00   88638/88639       _ZN7CX_BASE5_LockElii [24]
+[38]     0.3    0.01        0.00   88639         _ZN7CX_BASE8flush_sbEv [38]
+
+-----------------------------------------------
+
+                0.00        0.00   59092/207275      _ZN7CX_BASE15Get_Field_DescrEP2sti [47]
+                0.00        0.00  148183/207275      _ZN7CX_BASE15Get_Field_DescrEP3sla [36]
+[39]     0.3    0.01        0.00  207275         _ZN7CX_BASE15Get_Field_DescrEP2stP3sla [39]
+
+-----------------------------------------------
+
+                0.00        0.00       1/59100       _ZN7CX_BASED1Ev [62]
+                0.00        0.00       1/59100       _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/59100       _ZN5BTreeC1EP7CX_BASEPc5fieldi [78]
+                0.00        0.00       2/59100       calloc [76]
+                0.00        0.00       3/59100       sprintf [64]
+                0.00        0.00   29546/59100       _ZN5BPage3delEi [34]
+                0.00        0.00   29546/59100       _ZN5BTree9Find_PageEPclPii [13]
+[40]     0.2    0.00        0.00   59100         memset [40]
+
+-----------------------------------------------
+
+                0.00        0.00   88638/177276      _ZN7CX_BASE6UnlockEli [25]
+                0.00        0.00   88638/177276      _ZN7CX_BASE5_LockElii [24]
+[41]     0.2    0.00        0.00  177276         _ZN7CX_BASE11_Check_LockEliPi [41]
+
+-----------------------------------------------
+
+                0.00        0.00   29546/88685       _ZN7CX_BASE13Delete_RecordEli [3]
+                0.00        0.00   59139/88685       _ZN7CX_BASE7Put_BufEP2fdxiPc [5]
+[42]     0.1    0.00        0.00   88685         bcopy [42]
+
+-----------------------------------------------
+
+                0.00        0.00  567614/567614      _ZN5BPage8find_posEPcilPi [26]
+[43]     0.1    0.00        0.00  567614         _ZN5BPage3lenEi [43]
+
+-----------------------------------------------
+
+                0.00        0.00   29546/29546       _ZN5BTree6DeleteEPclli [22]
+[44]     0.1    0.00        0.00   29546         _ZN5BTree10Write_PageEP5BPage [44]
+
+-----------------------------------------------
+
+                0.00        0.00   59092/59092       _ZN7CX_BASE5_LockElii [24]
+[45]     0.1    0.00        0.00   59092         _ZN7CX_BASE8add_lockElii [45]
+                0.00        0.00       2/5           realloc [99]
+
+-----------------------------------------------
+
+                0.00        0.00   29546/29546       _ZN7CX_BASE6DeleteEl [2]
+[46]     0.1    0.00        0.00   29546         _ZN7CX_BASE8variableEP2sti [46]
+
+-----------------------------------------------
+
+                0.00        0.00   59092/59092       _ZN7CX_BASE15Get_Field_DescrEi [48]
+[47]     0.1    0.00        0.00   59092         _ZN7CX_BASE15Get_Field_DescrEP2sti [47]
+                0.00        0.00   59092/207275      _ZN7CX_BASE15Get_Field_DescrEP2stP3sla [39]
+
+-----------------------------------------------
+
+                0.00        0.00   59092/59092       _ZN7CX_BASE6DeleteEl [2]
+[48]     0.1    0.00        0.00   59092         _ZN7CX_BASE15Get_Field_DescrEi [48]
+                0.00        0.00   59092/59092       _ZN7CX_BASE15Get_Field_DescrEP2sti [47]
+
+-----------------------------------------------
+
+                0.00        0.00   30000/30000       rand [50]
+[49]     0.0    0.00        0.00   30000         do_rand [49]
+
+-----------------------------------------------
+
+                0.00        0.00   30000/30000       main [1]
+[50]     0.0    0.00        0.00   30000         rand [50]
+                0.00        0.00   30000/30000       do_rand [49]
+
+-----------------------------------------------
+
+                0.00        0.00   59092/59092       _ZN7CX_BASE6UnlockEli [25]
+[51]     0.0    0.00        0.00   59092         _ZN7CX_BASE8del_lockEli [51]
+
+-----------------------------------------------
+
+                0.00        0.00      15/15          __sprint [53]
+[52]     0.0    0.00        0.00      15         __sfvwrite [52]
+                0.00        0.00       5/5           __fflush [55]
+                0.00        0.00      21/23          memcpy [84]
+                0.00        0.00      10/10          memchr [89]
+
+-----------------------------------------------
+
+                0.00        0.00      15/15          __vfprintf [54]
+[53]     0.0    0.00        0.00      15         __sprint [53]
+                0.00        0.00      15/15          __sfvwrite [52]
+
+-----------------------------------------------
+
+                0.00        0.00       3/7           sprintf [64]
+                0.00        0.00       4/7           vfprintf [61]
+[54]     0.0    0.00        0.00       7         __vfprintf [54]
+                0.00        0.00      15/15          __sprint [53]
+                0.00        0.00       7/7           localeconv [95]
+                0.00        0.00       6/6           __ultoa [1266]
+                0.00        0.00       1/1           __swsetup [1296]
+
+-----------------------------------------------
+
+                0.00        0.00       5/5           __sfvwrite [52]
+[55]     0.0    0.00        0.00       5         __fflush [55]
+                0.00        0.00       5/5           __sflush [56]
+
+-----------------------------------------------
+
+                0.00        0.00       5/5           __fflush [55]
+[56]     0.0    0.00        0.00       5         __sflush [56]
+                0.00        0.00       5/5           _swrite [58]
+
+-----------------------------------------------
+
+                0.00        0.00       5/5           _swrite [58]
+[57]     0.0    0.00        0.00       5         __swrite [57]
+                0.00        0.00       5/147725      __sys_write [7]
+
+-----------------------------------------------
+
+                0.00        0.00       5/5           __sflush [56]
+[58]     0.0    0.00        0.00       5         _swrite [58]
+                0.00        0.00       5/5           __swrite [57]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           main [1]
+[59]     0.0    0.00        0.00       1         _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/1           _ZN7CX_BASE3MapEv [65]
+                0.00        0.00       2/2           _Z7if_basePcS_ [66]
+                0.00        0.00       1/205891      _read [6]
+                0.00        0.00       1/3           sprintf [64]
+                0.00        0.00       1/1           _ZN7CX_BASE6updateEv [77]
+                0.00        0.00       1/59100       memset [40]
+                0.00        0.00       1/2           calloc [76]
+                0.00        0.00       1/1           _ZN7CX_BASE13create_structEP2stP2fdPc [79]
+                0.00        0.00       1/1           _ZN5BTreeC1EP7CX_BASEPc5fieldi [78]
+                0.00        0.00       3/14          malloc [88]
+                0.00        0.00       2/7           _Z4fullPcS_S_ [1265]
+                0.00        0.00       1/2           _Z7if_readPc [1272]
+                0.00        0.00       1/9           _open [1264]
+                0.00        0.00       1/16          free [87]
+                0.00        0.00       1/4           _fstat [1268]
+                0.00        0.00       1/8           close [90]
+                0.00        0.00       1/29547       _Z8int_convPci [1263]
+                0.00        0.00       1/8           strcpy [93]
+                0.00        0.00       1/1           _ZN7CX_BASE7open_FDEP2fd [1282]
+                0.00        0.00       1/5           realloc [99]
+                0.00        0.00       1/2           _Znwj [1275]
+                0.00        0.00       1/1           signal [115]
+
+-----------------------------------------------
+
+                0.00        0.00       4/4           main [1]
+[60]     0.0    0.00        0.00       4         printf [60]
+                0.00        0.00       4/4           vfprintf [61]
+
+-----------------------------------------------
+
+                0.00        0.00       4/4           printf [60]
+[61]     0.0    0.00        0.00       4         vfprintf [61]
+                0.00        0.00       4/7           __vfprintf [54]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           main [1]
+[62]     0.0    0.00        0.00       1         _ZN7CX_BASED1Ev [62]
+                0.00        0.00       1/1           _ZN5BTreeD1Ev [63]
+                0.00        0.00       1/59100       memset [40]
+                0.00        0.00       5/16          free [87]
+                0.00        0.00       1/2           _ZdlPv [1274]
+                0.00        0.00       1/1           _ZN7CX_BASE11Erase_IndexEi [1279]
+                0.00        0.00       1/1           _ZN7CX_BASE8close_FDEv [1283]
+                0.00        0.00       1/1           _ZN7CX_BASE14free_substructEP2st [1280]
+                0.00        0.00       1/1           _ZN7CX_BASE5UnMapEv [1281]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASED1Ev [62]
+[63]     0.0    0.00        0.00       1         _ZN5BTreeD1Ev [63]
+                0.00        0.00       2/29537       _ZN5BTree5FlushEP5BPage [17]
+                0.00        0.00       1/8           close [90]
+
+-----------------------------------------------
+
+                0.00        0.00       1/3           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/3           _Z7if_basePcS_ [66]
+                0.00        0.00       1/3           _ZN7CX_BASE3MapEv [65]
+[64]     0.0    0.00        0.00       3         sprintf [64]
+                0.00        0.00       3/7           __vfprintf [54]
+                0.00        0.00       3/59100       memset [40]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASEC1EPc [59]
+[65]     0.0    0.00        0.00       1         _ZN7CX_BASE3MapEv [65]
+                0.00        0.00       1/1           mkstemp [70]
+                0.00        0.00       1/3           sprintf [64]
+                0.00        0.00       1/1           _ZN7CX_BASE3MapEPc [73]
+                0.00        0.00       1/3           __sys_getpid [1271]
+                0.00        0.00       1/8           close [90]
+
+-----------------------------------------------
+
+                0.00        0.00       2/2           _ZN7CX_BASEC1EPc [59]
+[66]     0.0    0.00        0.00       2         _Z7if_basePcS_ [66]
+                0.00        0.00       1/205891      _read [6]
+                0.00        0.00       1/3           sprintf [64]
+                0.00        0.00       2/14          malloc [88]
+                0.00        0.00       2/9           _open [1264]
+                0.00        0.00       2/16          free [87]
+                0.00        0.00       1/7           _Z4fullPcS_S_ [1265]
+                0.00        0.00       1/3           strrchr [105]
+                0.00        0.00       1/8           close [90]
+
+-----------------------------------------------
+
+                0.00        0.00       6/6           arc4random [68]
+[67]     0.0    0.00        0.00       6         arc4_check_stir [67]
+                0.00        0.00       1/1           arc4_stir [69]
+
+-----------------------------------------------
+
+                0.00        0.00       6/6           _gettemp [72]
+[68]     0.0    0.00        0.00       6         arc4random [68]
+                0.00        0.00       6/6           arc4_check_stir [67]
+                0.00        0.00       6/6           arc4_check_init [98]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           arc4_check_stir [67]
+[69]     0.0    0.00        0.00       1         arc4_stir [69]
+                0.00        0.00       1/205891      _read [6]
+                0.00        0.00    1024/1024        arc4_getbyte [81]
+                0.00        0.00       1/3           gettimeofday [103]
+                0.00        0.00       1/3           __sys_getpid [1271]
+                0.00        0.00       1/9           _open [1264]
+                0.00        0.00       1/8           close [90]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE3MapEv [65]
+[70]     0.0    0.00        0.00       1         mkstemp [70]
+                0.00        0.00       1/1           _gettemp [72]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _Z7strcmpwPKcS0_i [33]
+[71]     0.0    0.00        0.00       1         _Z10get_weightv [71]
+                0.00        0.00       1/205891      _read [6]
+                0.00        0.00       1/9           _open [1264]
+                0.00        0.00       1/8           close [90]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           mkstemp [70]
+[72]     0.0    0.00        0.00       1         _gettemp [72]
+                0.00        0.00       6/6           arc4random [68]
+                0.00        0.00       1/4           stat [101]
+                0.00        0.00       1/9           _open [1264]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE3MapEv [65]
+[73]     0.0    0.00        0.00       1         _ZN7CX_BASE3MapEPc [73]
+                0.00        0.00       1/1           ftruncate [74]
+                0.00        0.00       1/1           mmap [75]
+                0.00        0.00       2/2           _flock [1276]
+                0.00        0.00       1/5           strcmp [100]
+                0.00        0.00       1/1           atoi [109]
+                0.00        0.00       1/3           __sys_getpid [1271]
+                0.00        0.00       1/9           _open [1264]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE3MapEPc [73]
+[74]     0.0    0.00        0.00       1         ftruncate [74]
+                0.00        0.00       1/353609      ___syscall [19]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE3MapEPc [73]
+[75]     0.0    0.00        0.00       1         mmap [75]
+                0.00        0.00       1/353609      ___syscall [19]
+
+-----------------------------------------------
+
+                0.00        0.00       1/2           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/2           _ZN7CX_BASE13create_structEP2stP2fdPc [79]
+[76]     0.0    0.00        0.00       2         calloc [76]
+                0.00        0.00       2/59100       memset [40]
+                0.00        0.00       2/14          malloc [88]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASEC1EPc [59]
+[77]     0.0    0.00        0.00       1         _ZN7CX_BASE6updateEv [77]
+                0.00        0.00       1/88639       _ZN7CX_BASE8flush_sbEv [38]
+                0.00        0.00       1/4           _fstat [1268]
+                0.00        0.00       1/1           __divdi3 [1287]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASEC1EPc [59]
+[78]     0.0    0.00        0.00       1         _ZN5BTreeC1EP7CX_BASEPc5fieldi [78]
+                0.00        0.00       1/59100       memset [40]
+                0.00        0.00       1/9           _open [1264]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASEC1EPc [59]
+[79]     0.0    0.00        0.00       1         _ZN7CX_BASE13create_structEP2stP2fdPc [79]
+                0.00        0.00       1/2           calloc [76]
+                0.00        0.00       1/5           realloc [99]
+
+-----------------------------------------------
+
+[80]     0.0    0.00        0.00      22+26      <cycle 1 as a whole>	[80]
+                0.00        0.00      26             imalloc <cycle 1> [83]
+                0.00        0.00      22             malloc_bytes <cycle 1> [85]
+
+-----------------------------------------------
+
+                0.00        0.00    1024/1024        arc4_stir [69]
+[81]     0.0    0.00        0.00    1024         arc4_getbyte [81]
+
+-----------------------------------------------
+
+                0.00        0.00       5/35          realloc [99]
+                0.00        0.00      14/35          malloc [88]
+                0.00        0.00      16/35          free [87]
+[82]     0.0    0.00        0.00      35         pubrealloc [82]
+                0.00        0.00      17/22          imalloc <cycle 1> [83]
+                0.00        0.00      16/18          ifree [86]
+                0.00        0.00       2/2           irealloc [106]
+
+-----------------------------------------------
+
+                                       4             malloc_bytes <cycle 1> [85]
+                0.00        0.00       2/22          irealloc [106]
+                0.00        0.00       3/22          ifree [86]
+                0.00        0.00      17/22          pubrealloc [82]
+[83]     0.0    0.00        0.00      26         imalloc <cycle 1> [83]
+                0.00        0.00       4/8           malloc_pages [91]
+                                      22             malloc_bytes <cycle 1> [85]
+
+-----------------------------------------------
+
+                0.00        0.00       2/23          irealloc [106]
+                0.00        0.00      21/23          __sfvwrite [52]
+[84]     0.0    0.00        0.00      23         memcpy [84]
+
+-----------------------------------------------
+
+                                      22             imalloc <cycle 1> [83]
+[85]     0.0    0.00        0.00      22         malloc_bytes <cycle 1> [85]
+                0.00        0.00       4/8           malloc_pages [91]
+                                       4             imalloc <cycle 1> [83]
+
+-----------------------------------------------
+
+                                       9             ifree [86]
+                0.00        0.00       2/18          irealloc [106]
+                0.00        0.00      16/18          pubrealloc [82]
+[86]     0.0    0.00        0.00      18+9       ifree [86]
+                0.00        0.00       3/22          imalloc <cycle 1> [83]
+                                       9             ifree [86]
+
+-----------------------------------------------
+
+                0.00        0.00       1/16          _ZN7CX_BASE14free_substructEP2st [1280]
+                0.00        0.00       1/16          _ZN7CX_BASE8close_FDEv [1283]
+                0.00        0.00       1/16          _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/16          _ZN7CX_BASE7Get_BufEP2fdxi [8]
+                0.00        0.00       2/16          _Z7if_basePcS_ [66]
+                0.00        0.00       2/16          _ZdlPv [1274]
+                0.00        0.00       3/16          _Z7if_statPcS_i [1269]
+                0.00        0.00       5/16          _ZN7CX_BASED1Ev [62]
+[87]     0.0    0.00        0.00      16         free [87]
+                0.00        0.00      16/35          pubrealloc [82]
+
+-----------------------------------------------
+
+                0.00        0.00       1/14          _ZN7CX_BASE7Get_BufEP2fdxi [8]
+                0.00        0.00       1/14          __smakebuf [1294]
+                0.00        0.00       2/14          _Z7if_basePcS_ [66]
+                0.00        0.00       2/14          _Znwj [1275]
+                0.00        0.00       2/14          calloc [76]
+                0.00        0.00       3/14          _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       3/14          _Z7if_statPcS_i [1269]
+[88]     0.0    0.00        0.00      14         malloc [88]
+                0.00        0.00      14/35          pubrealloc [82]
+
+-----------------------------------------------
+
+                0.00        0.00      10/10          __sfvwrite [52]
+[89]     0.0    0.00        0.00      10         memchr [89]
+
+-----------------------------------------------
+
+                0.00        0.00       1/8           _ZN7CX_BASE8close_FDEv [1283]
+                0.00        0.00       1/8           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/8           _Z7if_basePcS_ [66]
+                0.00        0.00       1/8           _Z10get_weightv [71]
+                0.00        0.00       1/8           _ZN7CX_BASE3MapEv [65]
+                0.00        0.00       1/8           _ZN7CX_BASE5UnMapEv [1281]
+                0.00        0.00       1/8           _ZN5BTreeD1Ev [63]
+                0.00        0.00       1/8           arc4_stir [69]
+[90]     0.0    0.00        0.00       8         close [90]
+
+-----------------------------------------------
+
+                0.00        0.00       4/8           malloc_bytes <cycle 1> [85]
+                0.00        0.00       4/8           imalloc <cycle 1> [83]
+[91]     0.0    0.00        0.00       8         malloc_pages [91]
+                0.00        0.00       7/7           map_pages [96]
+
+-----------------------------------------------
+
+                0.00        0.00       8/8           _Z8PathNamePcS_S_ [1267]
+[92]     0.0    0.00        0.00       8         strchr [92]
+
+-----------------------------------------------
+
+                0.00        0.00       1/8           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       3/8           _Z4fullPcS_S_ [1265]
+                0.00        0.00       4/8           _Z8PathNamePcS_S_ [1267]
+[93]     0.0    0.00        0.00       8         strcpy [93]
+
+-----------------------------------------------
+
+                0.00        0.00       7/7           map_pages [96]
+[94]     0.0    0.00        0.00       7         brk [94]
+
+-----------------------------------------------
+
+                0.00        0.00       7/7           __vfprintf [54]
+[95]     0.0    0.00        0.00       7         localeconv [95]
+                0.00        0.00       1/1           __get_current_monetary_locale [1289]
+                0.00        0.00       1/1           __get_current_numeric_locale [1290]
+
+-----------------------------------------------
+
+                0.00        0.00       7/7           malloc_pages [91]
+[96]     0.0    0.00        0.00       7         map_pages [96]
+                0.00        0.00       7/7           sbrk [97]
+                0.00        0.00       7/7           brk [94]
+
+-----------------------------------------------
+
+                0.00        0.00       7/7           map_pages [96]
+[97]     0.0    0.00        0.00       7         sbrk [97]
+                0.00        0.00       1/1           __error_unthreaded [1288]
+
+-----------------------------------------------
+
+                0.00        0.00       6/6           arc4random [68]
+[98]     0.0    0.00        0.00       6         arc4_check_init [98]
+
+-----------------------------------------------
+
+                0.00        0.00       1/5           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/5           _ZN7CX_BASE13create_structEP2stP2fdPc [79]
+                0.00        0.00       1/5           _ZN7CX_BASE7open_FDEP2fd [1282]
+                0.00        0.00       2/5           _ZN7CX_BASE8add_lockElii [45]
+[99]     0.0    0.00        0.00       5         realloc [99]
+                0.00        0.00       5/35          pubrealloc [82]
+
+-----------------------------------------------
+
+                0.00        0.00       1/5           _ZN7CX_BASE3MapEPc [73]
+                0.00        0.00       4/5           _Z4fullPcS_S_ [1265]
+[100]    0.0    0.00        0.00       5         strcmp [100]
+
+-----------------------------------------------
+
+                0.00        0.00       1/4           _gettemp [72]
+                0.00        0.00       3/4           _Z7if_statPcS_i [1269]
+[101]    0.0    0.00        0.00       4         stat [101]
+
+-----------------------------------------------
+
+                0.00        0.00       4/4           _Z8PathNamePcS_S_ [1267]
+[102]    0.0    0.00        0.00       4         strncat [102]
+
+-----------------------------------------------
+
+                0.00        0.00       1/3           arc4_stir [69]
+                0.00        0.00       2/3           time [107]
+[103]    0.0    0.00        0.00       3         gettimeofday [103]
+
+-----------------------------------------------
+
+                0.00        0.00       3/3           _Z7if_statPcS_i [1269]
+[104]    0.0    0.00        0.00       3         getuid [104]
+
+-----------------------------------------------
+
+                0.00        0.00       1/3           _Z7if_basePcS_ [66]
+                0.00        0.00       2/3           _Z8HeadNamePcS_ [1273]
+[105]    0.0    0.00        0.00       3         strrchr [105]
+
+-----------------------------------------------
+
+                0.00        0.00       2/2           pubrealloc [82]
+[106]    0.0    0.00        0.00       2         irealloc [106]
+                0.00        0.00       2/22          imalloc <cycle 1> [83]
+                0.00        0.00       2/23          memcpy [84]
+                0.00        0.00       2/18          ifree [86]
+
+-----------------------------------------------
+
+                0.00        0.00       2/2           main [1]
+[107]    0.0    0.00        0.00       2         time [107]
+                0.00        0.00       2/3           gettimeofday [103]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE5UnMapEv [1281]
+[108]    0.0    0.00        0.00       1         access [108]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE3MapEPc [73]
+[109]    0.0    0.00        0.00       1         atoi [109]
+                0.00        0.00       1/1           strtol [116]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _Z11CHL_handleri [1378]
+[110]    0.0    0.00        0.00       1         exit [110]
+                0.00        0.00       1/1           __cxa_finalize [1284]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           __smakebuf [1294]
+[111]    0.0    0.00        0.00       1         isatty [111]
+                0.00        0.00       1/1           tcgetattr [118]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _mcleanup (1300)
+[112]    0.0    0.00        0.00       1         moncontrol [112]
+                0.00        0.00       1/1           __sys_profil [1298]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           signal [115]
+[113]    0.0    0.00        0.00       1         sigemptyset [113]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           signal [115]
+[114]    0.0    0.00        0.00       1         sigismember [114]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASEC1EPc [59]
+[115]    0.0    0.00        0.00       1         signal [115]
+                0.00        0.00       1/1           sigemptyset [113]
+                0.00        0.00       1/1           sigismember [114]
+                0.00        0.00       1/1           _sigaction [1302]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           atoi [109]
+[116]    0.0    0.00        0.00       1         strtol [116]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _mcleanup (1300)
+[117]    0.0    0.00        0.00       1         sysctl [117]
+                0.00        0.00       1/1           __sysctl [1299]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           isatty [111]
+[118]    0.0    0.00        0.00       1         tcgetattr [118]
+                0.00        0.00       1/1           __sys_ioctl [1297]
+
+-----------------------------------------------
+
+                0.00        0.00   29546/59092       _ZN5BTree9Read_PageEi [11]
+                0.00        0.00   29546/59092       _ZN5BTree9Find_PageEPclPii [13]
+[1262]   0.0    0.00        0.00   59092         _ZN5BTree9Root_PageEv [1262]
+
+-----------------------------------------------
+
+                0.00        0.00       1/29547       _ZN7CX_BASEC1EPc [59]
+                0.00        0.00   29546/29547       _ZN7CX_BASE11Delete_TreeEli [4]
+[1263]   0.0    0.00        0.00   29547         _Z8int_convPci [1263]
+
+-----------------------------------------------
+
+                0.00        0.00       1/9           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/9           _ZN7CX_BASE7open_FDEP2fd [1282]
+                0.00        0.00       1/9           _Z10get_weightv [71]
+                0.00        0.00       1/9           _ZN7CX_BASE3MapEPc [73]
+                0.00        0.00       1/9           _ZN5BTreeC1EP7CX_BASEPc5fieldi [78]
+                0.00        0.00       1/9           _gettemp [72]
+                0.00        0.00       1/9           arc4_stir [69]
+                0.00        0.00       2/9           _Z7if_basePcS_ [66]
+[1264]   0.0    0.00        0.00       9         _open [1264]
+
+-----------------------------------------------
+
+                0.00        0.00       1/7           _ZN7CX_BASE7open_FDEP2fd [1282]
+                0.00        0.00       1/7           _Z7if_basePcS_ [66]
+                0.00        0.00       2/7           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       3/7           _Z7if_statPcS_i [1269]
+[1265]   0.0    0.00        0.00       7         _Z4fullPcS_S_ [1265]
+                0.00        0.00       4/5           strcmp [100]
+                0.00        0.00       3/8           strcpy [93]
+                0.00        0.00       2/2           _Z8HeadNamePcS_ [1273]
+                0.00        0.00       2/4           _Z8PathNamePcS_S_ [1267]
+
+-----------------------------------------------
+
+                0.00        0.00       6/6           __vfprintf [54]
+[1266]   0.0    0.00        0.00       6         __ultoa [1266]
+
+-----------------------------------------------
+
+                0.00        0.00       2/4           _Z8HeadNamePcS_ [1273]
+                0.00        0.00       2/4           _Z4fullPcS_S_ [1265]
+[1267]   0.0    0.00        0.00       4         _Z8PathNamePcS_S_ [1267]
+                0.00        0.00       8/8           strchr [92]
+                0.00        0.00       4/8           strcpy [93]
+                0.00        0.00       4/4           strncat [102]
+
+-----------------------------------------------
+
+                0.00        0.00       1/4           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/4           _ZN7CX_BASE7open_FDEP2fd [1282]
+                0.00        0.00       1/4           _ZN7CX_BASE6updateEv [77]
+                0.00        0.00       1/4           __swhatbuf [1295]
+[1268]   0.0    0.00        0.00       4         _fstat [1268]
+
+-----------------------------------------------
+
+                0.00        0.00       3/3           _Z7if_statPci [1270]
+[1269]   0.0    0.00        0.00       3         _Z7if_statPcS_i [1269]
+                0.00        0.00       3/14          malloc [88]
+                0.00        0.00       3/7           _Z4fullPcS_S_ [1265]
+                0.00        0.00       3/4           stat [101]
+                0.00        0.00       3/3           getuid [104]
+                0.00        0.00       3/16          free [87]
+
+-----------------------------------------------
+
+                0.00        0.00       1/3           _Z8if_writePc [1277]
+                0.00        0.00       2/3           _Z7if_readPc [1272]
+[1270]   0.0    0.00        0.00       3         _Z7if_statPci [1270]
+                0.00        0.00       3/3           _Z7if_statPcS_i [1269]
+
+-----------------------------------------------
+
+                0.00        0.00       1/3           _ZN7CX_BASE3MapEv [65]
+                0.00        0.00       1/3           _ZN7CX_BASE3MapEPc [73]
+                0.00        0.00       1/3           arc4_stir [69]
+[1271]   0.0    0.00        0.00       3         __sys_getpid [1271]
+
+-----------------------------------------------
+
+                0.00        0.00       1/2           _ZN7CX_BASEC1EPc [59]
+                0.00        0.00       1/2           _ZN7CX_BASE7open_FDEP2fd [1282]
+[1272]   0.0    0.00        0.00       2         _Z7if_readPc [1272]
+                0.00        0.00       2/3           _Z7if_statPci [1270]
+
+-----------------------------------------------
+
+                0.00        0.00       2/2           _Z4fullPcS_S_ [1265]
+[1273]   0.0    0.00        0.00       2         _Z8HeadNamePcS_ [1273]
+                0.00        0.00       2/3           strrchr [105]
+                0.00        0.00       2/4           _Z8PathNamePcS_S_ [1267]
+
+-----------------------------------------------
+
+                0.00        0.00       1/2           main [1]
+                0.00        0.00       1/2           _ZN7CX_BASED1Ev [62]
+[1274]   0.0    0.00        0.00       2         _ZdlPv [1274]
+                0.00        0.00       2/16          free [87]
+
+-----------------------------------------------
+
+                0.00        0.00       1/2           main [1]
+                0.00        0.00       1/2           _ZN7CX_BASEC1EPc [59]
+[1275]   0.0    0.00        0.00       2         _Znwj [1275]
+                0.00        0.00       2/14          malloc [88]
+
+-----------------------------------------------
+
+                0.00        0.00       2/2           _ZN7CX_BASE3MapEPc [73]
+[1276]   0.0    0.00        0.00       2         _flock [1276]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE7open_FDEP2fd [1282]
+[1277]   0.0    0.00        0.00       1         _Z8if_writePc [1277]
+                0.00        0.00       1/3           _Z7if_statPci [1270]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE8close_FDEv [1283]
+[1278]   0.0    0.00        0.00       1         _ZN7CX_BASE10close_treeEP2st [1278]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASED1Ev [62]
+[1279]   0.0    0.00        0.00       1         _ZN7CX_BASE11Erase_IndexEi [1279]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASED1Ev [62]
+[1280]   0.0    0.00        0.00       1         _ZN7CX_BASE14free_substructEP2st [1280]
+                0.00        0.00       1/16          free [87]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASED1Ev [62]
+[1281]   0.0    0.00        0.00       1         _ZN7CX_BASE5UnMapEv [1281]
+                0.00        0.00       1/1           access [108]
+                0.00        0.00       1/1           _munmap [1301]
+                0.00        0.00       1/1           _unlink [1303]
+                0.00        0.00       1/8           close [90]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASEC1EPc [59]
+[1282]   0.0    0.00        0.00       1         _ZN7CX_BASE7open_FDEP2fd [1282]
+                0.00        0.00       1/7           _Z4fullPcS_S_ [1265]
+                0.00        0.00       1/2           _Z7if_readPc [1272]
+                0.00        0.00       1/1           _Z8if_writePc [1277]
+                0.00        0.00       1/9           _open [1264]
+                0.00        0.00       1/4           _fstat [1268]
+                0.00        0.00       1/5           realloc [99]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASED1Ev [62]
+[1283]   0.0    0.00        0.00       1         _ZN7CX_BASE8close_FDEv [1283]
+                0.00        0.00       1/1           _ZN7CX_BASE10close_treeEP2st [1278]
+                0.00        0.00       1/16          free [87]
+                0.00        0.00       1/8           close [90]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           exit [110]
+[1284]   0.0    0.00        0.00       1         __cxa_finalize [1284]
+                0.00        0.00       1/1           _mcleanup (1300)
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           __do_global_dtors_aux [1941]
+[1285]   0.0    0.00        0.00       1         __deregister_frame_info [1285]
+                0.00        0.00       1/1           __deregister_frame_info_bases [1286]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           __deregister_frame_info [1285]
+[1286]   0.0    0.00        0.00       1         __deregister_frame_info_bases [1286]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE6updateEv [77]
+[1287]   0.0    0.00        0.00       1         __divdi3 [1287]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           sbrk [97]
+[1288]   0.0    0.00        0.00       1         __error_unthreaded [1288]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           localeconv [95]
+[1289]   0.0    0.00        0.00       1         __get_current_monetary_locale [1289]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           localeconv [95]
+[1290]   0.0    0.00        0.00       1         __get_current_numeric_locale [1290]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           frame_dummy [443]
+[1291]   0.0    0.00        0.00       1         __register_frame_info [1291]
+                0.00        0.00       1/1           __register_frame_info_bases [1292]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           __register_frame_info [1291]
+[1292]   0.0    0.00        0.00       1         __register_frame_info_bases [1292]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           __swsetup [1296]
+[1293]   0.0    0.00        0.00       1         __sinit [1293]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           __swsetup [1296]
+[1294]   0.0    0.00        0.00       1         __smakebuf [1294]
+                0.00        0.00       1/1           __swhatbuf [1295]
+                0.00        0.00       1/14          malloc [88]
+                0.00        0.00       1/1           isatty [111]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           __smakebuf [1294]
+[1295]   0.0    0.00        0.00       1         __swhatbuf [1295]
+                0.00        0.00       1/4           _fstat [1268]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           __vfprintf [54]
+[1296]   0.0    0.00        0.00       1         __swsetup [1296]
+                0.00        0.00       1/1           __sinit [1293]
+                0.00        0.00       1/1           __smakebuf [1294]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           tcgetattr [118]
+[1297]   0.0    0.00        0.00       1         __sys_ioctl [1297]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           moncontrol [112]
+[1298]   0.0    0.00        0.00       1         __sys_profil [1298]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           sysctl [117]
+[1299]   0.0    0.00        0.00       1         __sysctl [1299]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE5UnMapEv [1281]
+[1301]   0.0    0.00        0.00       1         _munmap [1301]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           signal [115]
+[1302]   0.0    0.00        0.00       1         _sigaction [1302]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _ZN7CX_BASE5UnMapEv [1281]
+[1303]   0.0    0.00        0.00       1         _unlink [1303]
+
+-----------------------------------------------
+
+
+
+
+
+flat profile:
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+
+granularity: each sample hit covers 4 byte(s) for 0.04% of 2.44 seconds
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 31.0       0.76     0.76   205891     0.00     0.00  _read [6]
+ 26.6       1.40     0.65   147725     0.00     0.00  __sys_write [7]
+ 17.1       1.82     0.42                             .mcount (119)
+  8.4       2.03     0.21   177276     0.00     0.00  __sys_fcntl [15]
+  5.5       2.16     0.13   353609     0.00     0.00  ___syscall [19]
+  1.6       2.20     0.04  4267283     0.00     0.00  _ZN5BPage3posEi [28]
+  1.0       2.23     0.03   207323     0.00     0.00  _ZN7CX_BASE7Get_BufEP2fdxi [8]
+  0.8       2.25     0.02   567614     0.00     0.00  _Z7strcmpwPKcS0_i [33]
+  0.7       2.26     0.02   118183     0.00     0.01  _ZN7CX_BASE7Put_BufEP2fdxiPc [5]
+  0.6       2.28     0.02   567614     0.00     0.00  _Z7CompareP5fieldPcS1_i [31]
+  0.6       2.29     0.01   147730     0.00     0.00  _ZN5BTree9Read_PageEi [11]
+  0.5       2.31     0.01    88638     0.00     0.00  _ZN5BPage8find_posEPcilPi [26]
+  0.4       2.32     0.01    29546     0.00     0.00  memmove [35]
+  0.3       2.32     0.01   567614     0.00     0.00  _ZN5BPage3cmpEPciS0_il [27]
+  0.3       2.33     0.01    89092     0.00     0.00  _ZN7CX_BASE8Get_NodeElP3sla [14]
+  0.3       2.34     0.01    89092     0.00     0.00  _Z7bincopyPKvPvi [37]
+  0.3       2.35     0.01    88639     0.00     0.00  _ZN7CX_BASE8flush_sbEv [38]
+  0.2       2.35     0.01   207275     0.00     0.00  _ZN7CX_BASE15Get_Field_DescrEP2stP3sla [39]
+  0.2       2.36     0.01    88638     0.00     0.00  _ZN7CX_BASE6UnlockEli [25]
+  0.2       2.36     0.01                             main [1]
+  0.2       2.37     0.00    88638     0.00     0.00  _ZN7CX_BASE5_LockElii [24]
+  0.2       2.37     0.00    59091     0.00     0.01  _ZN7CX_BASE8Put_NodeElP3sla4node [12]
+  0.2       2.38     0.00    59091     0.00     0.01  _ZN7CX_BASE8Put_NodeEli4node [10]
+  0.2       2.38     0.00    29546     0.00     0.00  _ZN5BPage7get_posEl [29]
+  0.2       2.39     0.00    29546     0.00     0.03  _ZN7CX_BASE13Delete_RecordEli [3]
+  0.2       2.39     0.00   353607     0.00     0.00  lseek [18]
+  0.2       2.40     0.00   177276     0.00     0.00  _ZN7CX_BASE11_Check_LockEliPi [41]
+  0.2       2.40     0.00    59100     0.00     0.00  memset [40]
+  0.2       2.40     0.00    29546     0.00     0.01  _ZN5BTree9Find_PageEPclPii [13]
+  0.2       2.41     0.00    29546     0.00     0.03  _ZN7CX_BASE11Delete_TreeEli [4]
+  0.1       2.41     0.00   567614     0.00     0.00  _ZN5BPage3lenEi [43]
+  0.1       2.41     0.00   148183     0.00     0.00  _ZN7CX_BASE15Get_Field_DescrEP3sla [36]
+  0.1       2.42     0.00    88685     0.00     0.00  bcopy [42]
+  0.1       2.42     0.00    59092     0.00     0.00  _ZN7CX_BASE8Get_NodeEli [16]
+  0.1       2.42     0.00    30000     0.00     0.07  _ZN7CX_BASE6DeleteEl [2]
+  0.1       2.42     0.00    29546     0.00     0.00  _ZN5BTree10Write_PageEP5BPage [44]
+  0.1       2.43     0.00    59092     0.00     0.00  _ZN7CX_BASE8add_lockElii [45]
+  0.1       2.43     0.00    30000     0.00     0.00  _ZN7CX_BASE8Get_NodeEl [20]
+  0.1       2.43     0.00    29546     0.00     0.00  _ZN5BTree4LockEi [30]
+  0.1       2.43     0.00    29546     0.00     0.00  _ZN7CX_BASE8variableEP2sti [46]
+  0.1       2.43     0.00    29537     0.00     0.00  _ZN5BTree5FlushEP5BPage [17]
+  0.0       2.44     0.00    88638     0.00     0.00  _ZN7CX_BASE5WlockEli [23]
+  0.0       2.44     0.00    59092     0.00     0.00  _ZN7CX_BASE8del_lockEli [51]
+  0.0       2.44     0.00    30000     0.00     0.00  do_rand [49]
+  0.0       2.44     0.00    29546     0.00     0.02  _ZN5BTree6DeleteEPcl [9]
+  0.0       2.44     0.00    29546     0.00     0.00  _ZN5BTree6DeleteEPclli [22]
+  0.0       2.44     0.00    59092     0.00     0.00  _ZN5BTree9Root_PageEv [1262]
+  0.0       2.44     0.00    59092     0.00     0.00  _ZN7CX_BASE15Get_Field_DescrEP2sti [47]
+  0.0       2.44     0.00    59092     0.00     0.00  _ZN7CX_BASE15Get_Field_DescrEi [48]
+  0.0       2.44     0.00    30000     0.00     0.00  _ZN7CX_BASE9Check_DelEl [21]
+  0.0       2.44     0.00    30000     0.00     0.00  rand [50]
+  0.0       2.44     0.00    29547     0.00     0.00  _Z8int_convPci [1263]
+  0.0       2.44     0.00    29546     0.00     0.00  _ZN5BPage3delEi [34]
+  0.0       2.44     0.00    29546     0.00     0.00  _ZN5BTree6UnlockEi [32]
+  0.0       2.44     0.00     1024     0.00     0.00  arc4_getbyte [81]
+  0.0       2.44     0.00       35     0.00     0.00  pubrealloc [82]
+  0.0       2.44     0.00       26     0.00     0.00  imalloc <cycle 1> [83]
+  0.0       2.44     0.00       23     0.00     0.00  memcpy [84]
+  0.0       2.44     0.00       22     0.00     0.00  malloc_bytes <cycle 1> [85]
+  0.0       2.44     0.00       18     0.00     0.00  ifree [86]
+  0.0       2.44     0.00       16     0.00     0.00  free [87]
+  0.0       2.44     0.00       15     0.00     0.00  __sfvwrite [52]
+  0.0       2.44     0.00       15     0.00     0.00  __sprint [53]
+  0.0       2.44     0.00       14     0.00     0.00  malloc [88]
+  0.0       2.44     0.00       10     0.00     0.00  memchr [89]
+  0.0       2.44     0.00        9     0.00     0.00  _open [1264]
+  0.0       2.44     0.00        8     0.00     0.00  close [90]
+  0.0       2.44     0.00        8     0.00     0.00  malloc_pages [91]
+  0.0       2.44     0.00        8     0.00     0.00  strchr [92]
+  0.0       2.44     0.00        8     0.00     0.00  strcpy [93]
+  0.0       2.44     0.00        7     0.00     0.00  _Z4fullPcS_S_ [1265]
+  0.0       2.44     0.00        7     0.00     0.00  __vfprintf [54]
+  0.0       2.44     0.00        7     0.00     0.00  brk [94]
+  0.0       2.44     0.00        7     0.00     0.00  localeconv [95]
+  0.0       2.44     0.00        7     0.00     0.00  map_pages [96]
+  0.0       2.44     0.00        7     0.00     0.00  sbrk [97]
+  0.0       2.44     0.00        6     0.00     0.00  __ultoa [1266]
+  0.0       2.44     0.00        6     0.00     0.00  arc4_check_init [98]
+  0.0       2.44     0.00        6     0.00     0.00  arc4_check_stir [67]
+  0.0       2.44     0.00        6     0.00     0.00  arc4random [68]
+  0.0       2.44     0.00        5     0.00     0.00  __fflush [55]
+  0.0       2.44     0.00        5     0.00     0.00  __sflush [56]
+  0.0       2.44     0.00        5     0.00     0.00  __swrite [57]
+  0.0       2.44     0.00        5     0.00     0.00  _swrite [58]
+  0.0       2.44     0.00        5     0.00     0.00  realloc [99]
+  0.0       2.44     0.00        5     0.00     0.00  strcmp [100]
+  0.0       2.44     0.00        4     0.00     0.00  _Z8PathNamePcS_S_ [1267]
+  0.0       2.44     0.00        4     0.00     0.00  _fstat [1268]
+  0.0       2.44     0.00        4     0.00     0.00  printf [60]
+  0.0       2.44     0.00        4     0.00     0.00  stat [101]
+  0.0       2.44     0.00        4     0.00     0.00  strncat [102]
+  0.0       2.44     0.00        4     0.00     0.00  vfprintf [61]
+  0.0       2.44     0.00        3     0.00     0.00  _Z7if_statPcS_i [1269]
+  0.0       2.44     0.00        3     0.00     0.00  _Z7if_statPci [1270]
+  0.0       2.44     0.00        3     0.00     0.00  __sys_getpid [1271]
+  0.0       2.44     0.00        3     0.00     0.00  gettimeofday [103]
+  0.0       2.44     0.00        3     0.00     0.00  getuid [104]
+  0.0       2.44     0.00        3     0.00     0.00  sprintf [64]
+  0.0       2.44     0.00        3     0.00     0.00  strrchr [105]
+  0.0       2.44     0.00        2     0.00     0.00  _Z7if_basePcS_ [66]
+  0.0       2.44     0.00        2     0.00     0.00  _Z7if_readPc [1272]
+  0.0       2.44     0.00        2     0.00     0.00  _Z8HeadNamePcS_ [1273]
+  0.0       2.44     0.00        2     0.00     0.00  _ZdlPv [1274]
+  0.0       2.44     0.00        2     0.00     0.00  _Znwj [1275]
+  0.0       2.44     0.00        2     0.00     0.00  _flock [1276]
+  0.0       2.44     0.00        2     0.00     0.00  calloc [76]
+  0.0       2.44     0.00        2     0.00     0.00  irealloc [106]
+  0.0       2.44     0.00        2     0.00     0.00  time [107]
+  0.0       2.44     0.00        1     0.00     0.00  _Z10get_weightv [71]
+  0.0       2.44     0.00        1     0.00     0.00  _Z8if_writePc [1277]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN5BTreeC1EP7CX_BASEPc5fieldi [78]
+  0.0       2.44     0.00        1     0.00     0.01  _ZN5BTreeD1Ev [63]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN7CX_BASE10close_treeEP2st [1278]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN7CX_BASE11Erase_IndexEi [1279]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN7CX_BASE13create_structEP2stP2fdPc [79]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN7CX_BASE14free_substructEP2st [1280]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN7CX_BASE3MapEPc [73]
+  0.0       2.44     0.00        1     0.00     0.01  _ZN7CX_BASE3MapEv [65]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN7CX_BASE5UnMapEv [1281]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN7CX_BASE6updateEv [77]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN7CX_BASE7open_FDEP2fd [1282]
+  0.0       2.44     0.00        1     0.00     0.00  _ZN7CX_BASE8close_FDEv [1283]
+  0.0       2.44     0.00        1     0.00     0.02  _ZN7CX_BASEC1EPc [59]
+  0.0       2.44     0.00        1     0.00     0.01  _ZN7CX_BASED1Ev [62]
+  0.0       2.44     0.00        1     0.00     0.00  __cxa_finalize [1284]
+  0.0       2.44     0.00        1     0.00     0.00  __deregister_frame_info [1285]
+  0.0       2.44     0.00        1     0.00     0.00  __deregister_frame_info_bases [1286]
+  0.0       2.44     0.00        1     0.00     0.00  __divdi3 [1287]
+  0.0       2.44     0.00        1     0.00     0.00  __error_unthreaded [1288]
+  0.0       2.44     0.00        1     0.00     0.00  __get_current_monetary_locale [1289]
+  0.0       2.44     0.00        1     0.00     0.00  __get_current_numeric_locale [1290]
+  0.0       2.44     0.00        1     0.00     0.00  __register_frame_info [1291]
+  0.0       2.44     0.00        1     0.00     0.00  __register_frame_info_bases [1292]
+  0.0       2.44     0.00        1     0.00     0.00  __sinit [1293]
+  0.0       2.44     0.00        1     0.00     0.00  __smakebuf [1294]
+  0.0       2.44     0.00        1     0.00     0.00  __swhatbuf [1295]
+  0.0       2.44     0.00        1     0.00     0.00  __swsetup [1296]
+  0.0       2.44     0.00        1     0.00     0.00  __sys_ioctl [1297]
+  0.0       2.44     0.00        1     0.00     0.00  __sys_profil [1298]
+  0.0       2.44     0.00        1     0.00     0.00  __sysctl [1299]
+  0.0       2.44     0.00        1     0.00     0.00  _gettemp [72]
+  0.0       2.44     0.00        1     0.00     0.00  _mcleanup (1300)
+  0.0       2.44     0.00        1     0.00     0.00  _munmap [1301]
+  0.0       2.44     0.00        1     0.00     0.00  _sigaction [1302]
+  0.0       2.44     0.00        1     0.00     0.00  _unlink [1303]
+  0.0       2.44     0.00        1     0.00     0.00  access [108]
+  0.0       2.44     0.00        1     0.00     0.00  arc4_stir [69]
+  0.0       2.44     0.00        1     0.00     0.00  atoi [109]
+  0.0       2.44     0.00        1     0.00     0.00  exit [110]
+  0.0       2.44     0.00        1     0.00     0.00  ftruncate [74]
+  0.0       2.44     0.00        1     0.00     0.00  isatty [111]
+  0.0       2.44     0.00        1     0.00     0.00  mkstemp [70]
+  0.0       2.44     0.00        1     0.00     0.00  mmap [75]
+  0.0       2.44     0.00        1     0.00     0.00  moncontrol [112]
+  0.0       2.44     0.00        1     0.00     0.00  sigemptyset [113]
+  0.0       2.44     0.00        1     0.00     0.00  sigismember [114]
+  0.0       2.44     0.00        1     0.00     0.00  signal [115]
+  0.0       2.44     0.00        1     0.00     0.00  strtol [116]
+  0.0       2.44     0.00        1     0.00     0.00  sysctl [117]
+  0.0       2.44     0.00        1     0.00     0.00  tcgetattr [118]
+
+Index by function name
+
+ (119) .mcount              [14] _ZN7CX_BASE8Get_Nod  [81] arc4_getbyte       
+  [71] _Z10get_weightv      [16] _ZN7CX_BASE8Get_Nod  [69] arc4_stir          
+[1265] _Z4fullPcS_S_        [12] _ZN7CX_BASE8Put_Nod  [68] arc4random         
+  [31] _Z7CompareP5fieldPc  [10] _ZN7CX_BASE8Put_Nod [109] atoi               
+  [37] _Z7bincopyPKvPvi     [45] _ZN7CX_BASE8add_loc  [42] bcopy              
+  [66] _Z7if_basePcS_     [1283] _ZN7CX_BASE8close_F  [94] brk                
+[1272] _Z7if_readPc         [51] _ZN7CX_BASE8del_loc  [76] calloc             
+[1269] _Z7if_statPcS_i      [38] _ZN7CX_BASE8flush_s  [90] close              
+[1270] _Z7if_statPci        [46] _ZN7CX_BASE8variabl  [49] do_rand            
+  [33] _Z7strcmpwPKcS0_i    [21] _ZN7CX_BASE9Check_D [110] exit               
+[1273] _Z8HeadNamePcS_      [59] _ZN7CX_BASEC1EPc     [87] free               
+[1267] _Z8PathNamePcS_S_    [62] _ZN7CX_BASED1Ev      [74] ftruncate          
+[1277] _Z8if_writePc      [1274] _ZdlPv              [103] gettimeofday       
+[1263] _Z8int_convPci     [1275] _Znwj               [104] getuid             
+  [27] _ZN5BPage3cmpEPciS0  [19] ___syscall           [86] ifree              
+  [34] _ZN5BPage3delEi    [1284] __cxa_finalize       [83] imalloc            
+  [43] _ZN5BPage3lenEi    [1285] __deregister_frame_ [106] irealloc           
+  [28] _ZN5BPage3posEi    [1286] __deregister_frame_ [111] isatty             
+  [29] _ZN5BPage7get_posEl[1287] __divdi3             [95] localeconv         
+  [26] _ZN5BPage8find_posE[1288] __error_unthreaded   [18] lseek              
+  [44] _ZN5BTree10Write_Pa  [55] __fflush              [1] main               
+  [30] _ZN5BTree4LockEi   [1289] __get_current_monet  [88] malloc             
+  [17] _ZN5BTree5FlushEP5B[1290] __get_current_numer  [85] malloc_bytes       
+   [9] _ZN5BTree6DeleteEPc[1291] __register_frame_in  [91] malloc_pages       
+  [22] _ZN5BTree6DeleteEPc[1292] __register_frame_in  [96] map_pages          
+  [32] _ZN5BTree6UnlockEi   [56] __sflush             [89] memchr             
+  [13] _ZN5BTree9Find_Page  [52] __sfvwrite           [84] memcpy             
+  [11] _ZN5BTree9Read_Page[1293] __sinit              [35] memmove            
+[1262] _ZN5BTree9Root_Page[1294] __smakebuf           [40] memset             
+  [78] _ZN5BTreeC1EP7CX_BA  [53] __sprint             [70] mkstemp            
+  [63] _ZN5BTreeD1Ev      [1295] __swhatbuf           [75] mmap               
+[1278] _ZN7CX_BASE10close_  [57] __swrite            [112] moncontrol         
+   [4] _ZN7CX_BASE11Delete[1296] __swsetup            [60] printf             
+[1279] _ZN7CX_BASE11Erase_  [15] __sys_fcntl          [82] pubrealloc         
+  [41] _ZN7CX_BASE11_Check[1271] __sys_getpid         [50] rand               
+   [3] _ZN7CX_BASE13Delete[1297] __sys_ioctl          [99] realloc            
+  [79] _ZN7CX_BASE13create[1298] __sys_profil         [97] sbrk               
+[1280] _ZN7CX_BASE14free_s   [7] __sys_write         [113] sigemptyset        
+  [39] _ZN7CX_BASE15Get_Fi[1299] __sysctl            [114] sigismember        
+  [47] _ZN7CX_BASE15Get_Fi[1266] __ultoa             [115] signal             
+  [36] _ZN7CX_BASE15Get_Fi  [54] __vfprintf           [64] sprintf            
+  [48] _ZN7CX_BASE15Get_Fi[1276] _flock              [101] stat               
+  [73] _ZN7CX_BASE3MapEPc [1268] _fstat               [92] strchr             
+  [65] _ZN7CX_BASE3MapEv    [72] _gettemp            [100] strcmp             
+[1281] _ZN7CX_BASE5UnMapEv(1300) _mcleanup            [93] strcpy             
+  [23] _ZN7CX_BASE5WlockEl[1301] _munmap             [102] strncat            
+  [24] _ZN7CX_BASE5_LockEl[1264] _open               [105] strrchr            
+   [2] _ZN7CX_BASE6DeleteE   [6] _read               [116] strtol             
+  [25] _ZN7CX_BASE6UnlockE[1302] _sigaction          [117] sysctl             
+  [77] _ZN7CX_BASE6updateE  [58] _swrite             [118] tcgetattr          
+   [8] _ZN7CX_BASE7Get_Buf[1303] _unlink             [107] time               
+   [5] _ZN7CX_BASE7Put_Buf [108] access               [61] vfprintf           
+[1282] _ZN7CX_BASE7open_FD  [98] arc4_check_init      [80] <cycle 1>          
+  [20] _ZN7CX_BASE8Get_Nod  [67] arc4_check_stir    

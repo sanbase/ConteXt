@@ -1,0 +1,182 @@
+OBJ=    init.o get_slot.o put_slot.o full.o read.o write.o get_date.o transaction.o\
+	atoll.o convers.o tree.o block.o new_record.o delete.o find.o create_db.o \
+	cadr.o hlam.o strdif.o share.o expression.o get_value.o zip.o repair.o schema.o \
+	header.o ram_base.o socket.o network.o query.o remote.o index.o vector.o select.o \
+	Ttree.o storage.o
+
+CC=g++ -I.. -O2 -DVER=8 -DLINUX -Wall
+
+LIB=../libcxdb.a
+
+all:    $(LIB)
+
+.c.o:   ConteXt.h CX_BASE.h Makefile.linux
+	${CC} -c ${.IMPSRC}
+.cc.o:  ConteXt.h CX_BASE.h Makefile.linux
+	${CC}  -c  ${.IMPSRC}
+.cpp.o:  ConteXt.h CX_BASE.h Makefile.linux
+	${CC}  -c  ${.IMPSRC}
+
+$(LIB): ConteXt.h CX_BASE.h Makefile.linux $(OBJ)
+	ar crv $(LIB) $(OBJ)
+	ranlib $(LIB)
+
+init.o:  ConteXt.h CX_BASE.h Makefile.linux init.cpp
+	../update init.cpp
+	${CC} -c $(CFLAGS) init.cpp
+
+get_slot.o:  ConteXt.h CX_BASE.h Makefile.linux get_slot.cpp
+	../update get_slot.cpp
+	${CC} -c $(CFLAGS) get_slot.cpp
+
+transaction.o:  ConteXt.h CX_BASE.h Makefile.linux transaction.cpp
+	../update transaction.cpp
+	${CC} -c $(CFLAGS) transaction.cpp
+
+put_slot.o:  ConteXt.h CX_BASE.h Makefile.linux put_slot.cpp
+	../update put_slot.cpp
+	${CC} -c $(CFLAGS) put_slot.cpp
+
+full.o:  ConteXt.h CX_BASE.h Makefile.linux full.cpp
+	../update full.cpp
+	${CC} -c $(CFLAGS) full.cpp
+
+read.o:  ConteXt.h CX_BASE.h Makefile.linux read.cpp
+	../update read.cpp
+	${CC} -c $(CFLAGS) read.cpp
+
+write.o:  ConteXt.h CX_BASE.h Makefile.linux write.cpp
+	../update write.cpp
+	${CC} -c $(CFLAGS) write.cpp
+
+get_date.o:  ConteXt.h CX_BASE.h Makefile.linux get_date.cpp
+	../update get_date.cpp
+	${CC} -c $(CFLAGS) get_date.cpp
+
+atoll.o:  ConteXt.h CX_BASE.h Makefile.linux atoll.cpp
+	../update atoll.cpp
+	${CC} -c $(CFLAGS) atoll.cpp
+
+convers.o:  ConteXt.h CX_BASE.h Makefile.linux convers.cpp
+	../update convers.cpp
+	${CC} -c $(CFLAGS) convers.cpp
+
+tree.o:  ConteXt.h CX_BASE.h Makefile.linux tree.cpp
+	../update tree.cpp
+	${CC} -c $(CFLAGS) tree.cpp
+
+block.o:  ConteXt.h CX_BASE.h Makefile.linux block.cpp
+	../update block.cpp
+	${CC} -c $(CFLAGS) block.cpp
+
+new_record.o:  ConteXt.h CX_BASE.h Makefile.linux new_record.cpp
+	../update new_record.cpp
+	${CC} -c $(CFLAGS) new_record.cpp
+
+delete.o:  ConteXt.h CX_BASE.h Makefile.linux delete.cpp
+	../update delete.cpp
+	${CC} -c $(CFLAGS) delete.cpp
+
+find.o:  ConteXt.h CX_BASE.h Makefile.linux find.cpp
+	../update find.cpp
+	${CC} -c $(CFLAGS) find.cpp
+
+create_db.o:  ConteXt.h CX_BASE.h Makefile.linux create_db.cpp
+	../update create_db.cpp
+	${CC} -c $(CFLAGS) create_db.cpp
+
+cadr.o:  ConteXt.h CX_BASE.h Makefile.linux cadr.cpp
+	../update cadr.cpp
+	${CC} -c $(CFLAGS) cadr.cpp
+
+hlam.o:  ConteXt.h CX_BASE.h Makefile.linux hlam.cpp
+	../update hlam.cpp
+	${CC} -c $(CFLAGS) hlam.cpp
+
+strdif.o:  ConteXt.h CX_BASE.h Makefile.linux strdif.cpp
+	../update strdif.cpp
+	${CC} -c $(CFLAGS) strdif.cpp
+
+share.o:  ConteXt.h CX_BASE.h Makefile.linux share.cpp
+	../update share.cpp
+	${CC} -c $(CFLAGS) share.cpp
+
+expression.o:  ConteXt.h CX_BASE.h Makefile.linux expression.cpp
+	../update expression.cpp
+	${CC} -c $(CFLAGS) expression.cpp
+
+get_value.o:  ConteXt.h CX_BASE.h Makefile.linux get_value.cpp
+	../update get_value.cpp
+	${CC} -c $(CFLAGS) get_value.cpp
+
+zip.o:  ConteXt.h CX_BASE.h Makefile.linux gzip.h tailor.h zip.cpp
+	../update zip.cpp
+	${CC} -c $(CFLAGS) zip.cpp
+
+unzip.o:  ConteXt.h CX_BASE.h Makefile.linux zip.h tailor.h unzip.cpp
+	../update unzip.cpp
+	${CC} -c $(CFLAGS) unzip.cpp
+
+query.o:  ConteXt.h CX_BASE.h Makefile.linux query.cpp
+	../update query.cpp
+	${CC} -c $(CFLAGS) query.cpp
+
+select.o:  ConteXt.h CX_BASE.h Makefile.linux select.cpp
+	../update select.cpp
+	${CC} -c $(CFLAGS) select.cpp
+
+sort.o:  ConteXt.h CX_BASE.h Makefile.linux sort.cpp
+	../update sort.cpp
+	${CC} -c $(CFLAGS) sort.cpp
+
+header.o:  ConteXt.h CX_BASE.h Makefile.linux header.cpp
+	../update header.cpp
+	${CC} -c $(CFLAGS) header.cpp
+
+ram_base.o: ConteXt.h CX_BASE.h ram_base.h Makefile.linux ram_base.cpp
+	../update ram_base.cpp
+	${CC} -c $(CFLAGS) ram_base.cpp
+
+socket.o:  ConteXt.h CX_BASE.h Makefile.linux socket.cpp
+	../update socket.cpp
+	${CC} -c $(CFLAGS) socket.cpp
+
+socket_udp.o:  ConteXt.h CX_BASE.h Makefile.linux socket_udp.cpp
+	../update socket_udp.cpp
+	${CC} -c $(CFLAGS) socket_udp.cpp
+
+network.o: Makefile.linux network.cpp
+	../update network.cpp
+	${CC} -c $(CFLAGS) network.cpp
+
+remote.o: Makefile.linux remote.cpp
+	../update remote.cpp
+	${CC} -c $(CFLAGS) remote.cpp
+
+sorting.o:  ConteXt.h CX_BASE.h Makefile.linux sorting.cpp
+	../update sorting.cpp
+	${CC} -c $(CFLAGS) sorting.cpp
+
+index.o:  ConteXt.h CX_BASE.h Makefile.linux index.cpp
+	../update index.cpp
+	${CC} -c $(CFLAGS) index.cpp
+
+vector.o: CX_BASE.h Makefile.linux vector.cpp
+	../update vector.cpp
+	${CC} -c $(CFLAGS) vector.cpp
+
+schema.o: CX_BASE.h Makefile.linux schema.cpp
+	../update schema.cpp
+	${CC} -c $(CFLAGS) schema.cpp
+
+repair.o: CX_BASE.h Makefile.linux repair.cpp
+	../update repair.cpp
+	${CC} -c $(CFLAGS) repair.cpp
+
+Ttree.o: CX_BASE.h Makefile.linux Ttree.h Ttree.cpp
+	../update Ttree.cpp
+	${CC} -c $(CFLAGS) Ttree.cpp
+
+storage.o: CX_BASE.h Makefile.linux Ttree.h storage.cpp
+	../update storage.cpp
+	${CC} -c $(CFLAGS) storage.cpp

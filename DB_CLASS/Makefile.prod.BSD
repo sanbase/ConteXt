@@ -1,0 +1,182 @@
+OBJ=    init.o get_slot.o put_slot.o full.o read.o write.o get_date.o transaction.o\
+	atoll.o convers.o tree.o block.o new_record.o delete.o find.o create_db.o \
+	cadr.o hlam.o strdif.o share.o expression.o get_value.o zip.o repair.o schema.o \
+	header.o ram_base.o socket.o network.o query.o remote.o index.o vector.o select.o \
+	Ttree.o storage.o
+
+CC=g++ -I.. -O3 -DVER=8 -fhandle-exceptions -Wall
+#CC=g++ -I.. -pg -DVER=8 -Wall
+LIB=../libcxdb.a
+
+all:    $(LIB)
+
+.c.o:   ConteXt.h CX_BASE.h Makefile.freeBSD
+	${CC} -c ${.IMPSRC}
+.cc.o:  ConteXt.h CX_BASE.h Makefile.freeBSD
+	${CC}  -c  ${.IMPSRC}
+.cpp.o:  ConteXt.h CX_BASE.h Makefile.freeBSD
+	${CC}  -c  ${.IMPSRC}
+
+$(LIB): ConteXt.h CX_BASE.h Makefile.freeBSD $(OBJ)
+	ar crv $(LIB) $(OBJ)
+	ranlib $(LIB)
+
+init.o:  ConteXt.h CX_BASE.h Makefile.freeBSD init.cpp
+	../update init.cpp
+	${CC} -c $(CFLAGS) init.cpp
+
+get_slot.o:  ConteXt.h CX_BASE.h Makefile.freeBSD get_slot.cpp
+	../update get_slot.cpp
+	${CC} -c $(CFLAGS) get_slot.cpp
+
+transaction.o:  ConteXt.h CX_BASE.h Makefile.freeBSD transaction.cpp
+	../update transaction.cpp
+	${CC} -c $(CFLAGS) transaction.cpp
+
+put_slot.o:  ConteXt.h CX_BASE.h Makefile.freeBSD put_slot.cpp
+	../update put_slot.cpp
+	${CC} -c $(CFLAGS) put_slot.cpp
+
+full.o:  ConteXt.h CX_BASE.h Makefile.freeBSD full.cpp
+	../update full.cpp
+	${CC} -c $(CFLAGS) full.cpp
+
+read.o:  ConteXt.h CX_BASE.h Makefile.freeBSD read.cpp
+	../update read.cpp
+	${CC} -c $(CFLAGS) read.cpp
+
+write.o:  ConteXt.h CX_BASE.h Makefile.freeBSD write.cpp
+	../update write.cpp
+	${CC} -c $(CFLAGS) write.cpp
+
+get_date.o:  ConteXt.h CX_BASE.h Makefile.freeBSD get_date.cpp
+	../update get_date.cpp
+	${CC} -c $(CFLAGS) get_date.cpp
+
+atoll.o:  ConteXt.h CX_BASE.h Makefile.freeBSD atoll.cpp
+	../update atoll.cpp
+	${CC} -c $(CFLAGS) atoll.cpp
+
+convers.o:  ConteXt.h CX_BASE.h Makefile.freeBSD convers.cpp
+	../update convers.cpp
+	${CC} -c $(CFLAGS) convers.cpp
+
+tree.o:  ConteXt.h CX_BASE.h Makefile.freeBSD tree.cpp
+	../update tree.cpp
+	${CC} -c $(CFLAGS) tree.cpp
+
+block.o:  ConteXt.h CX_BASE.h Makefile.freeBSD block.cpp
+	../update block.cpp
+	${CC} -c $(CFLAGS) block.cpp
+
+new_record.o:  ConteXt.h CX_BASE.h Makefile.freeBSD new_record.cpp
+	../update new_record.cpp
+	${CC} -c $(CFLAGS) new_record.cpp
+
+delete.o:  ConteXt.h CX_BASE.h Makefile.freeBSD delete.cpp
+	../update delete.cpp
+	${CC} -c $(CFLAGS) delete.cpp
+
+find.o:  ConteXt.h CX_BASE.h Makefile.freeBSD find.cpp
+	../update find.cpp
+	${CC} -c $(CFLAGS) find.cpp
+
+create_db.o:  ConteXt.h CX_BASE.h Makefile.freeBSD create_db.cpp
+	../update create_db.cpp
+	${CC} -c $(CFLAGS) create_db.cpp
+
+cadr.o:  ConteXt.h CX_BASE.h Makefile.freeBSD cadr.cpp
+	../update cadr.cpp
+	${CC} -c $(CFLAGS) cadr.cpp
+
+hlam.o:  ConteXt.h CX_BASE.h Makefile.freeBSD hlam.cpp
+	../update hlam.cpp
+	${CC} -c $(CFLAGS) hlam.cpp
+
+strdif.o:  ConteXt.h CX_BASE.h Makefile.freeBSD strdif.cpp
+	../update strdif.cpp
+	${CC} -c $(CFLAGS) strdif.cpp
+
+share.o:  ConteXt.h CX_BASE.h Makefile.freeBSD share.cpp
+	../update share.cpp
+	${CC} -c $(CFLAGS) share.cpp
+
+expression.o:  ConteXt.h CX_BASE.h Makefile.freeBSD expression.cpp
+	../update expression.cpp
+	${CC} -c $(CFLAGS) expression.cpp
+
+get_value.o:  ConteXt.h CX_BASE.h Makefile.freeBSD get_value.cpp
+	../update get_value.cpp
+	${CC} -c $(CFLAGS) get_value.cpp
+
+zip.o:  ConteXt.h CX_BASE.h Makefile.freeBSD gzip.h tailor.h zip.cpp
+	../update zip.cpp
+	${CC} -c $(CFLAGS) zip.cpp
+
+unzip.o:  ConteXt.h CX_BASE.h Makefile.freeBSD zip.h tailor.h unzip.cpp
+	../update unzip.cpp
+	${CC} -c $(CFLAGS) unzip.cpp
+
+query.o:  ConteXt.h CX_BASE.h Makefile.freeBSD query.cpp
+	../update query.cpp
+	${CC} -c $(CFLAGS) query.cpp
+
+select.o:  ConteXt.h CX_BASE.h Makefile.freeBSD select.cpp
+	../update select.cpp
+	${CC} -c $(CFLAGS) select.cpp
+
+sort.o:  ConteXt.h CX_BASE.h Makefile.freeBSD sort.cpp
+	../update sort.cpp
+	${CC} -c $(CFLAGS) sort.cpp
+
+header.o:  ConteXt.h CX_BASE.h Makefile.freeBSD header.cpp
+	../update header.cpp
+	${CC} -c $(CFLAGS) header.cpp
+
+ram_base.o: ConteXt.h CX_BASE.h ram_base.h Makefile.freeBSD ram_base.cpp
+	../update ram_base.cpp
+	${CC} -c $(CFLAGS) ram_base.cpp
+
+socket.o:  ConteXt.h CX_BASE.h Makefile.freeBSD socket.cpp
+	../update socket.cpp
+	${CC} -c $(CFLAGS) socket.cpp
+
+socket_udp.o:  ConteXt.h CX_BASE.h Makefile.freeBSD socket_udp.cpp
+	../update socket_udp.cpp
+	${CC} -c $(CFLAGS) socket_udp.cpp
+
+network.o: Makefile.freeBSD network.cpp
+	../update network.cpp
+	${CC} -c $(CFLAGS) network.cpp
+
+remote.o: Makefile.freeBSD remote.cpp
+	../update remote.cpp
+	${CC} -c $(CFLAGS) remote.cpp
+
+sorting.o:  ConteXt.h CX_BASE.h Makefile.freeBSD sorting.cpp
+	../update sorting.cpp
+	${CC} -c $(CFLAGS) sorting.cpp
+
+index.o:  ConteXt.h CX_BASE.h Makefile.freeBSD index.cpp
+	../update index.cpp
+	${CC} -c $(CFLAGS) index.cpp
+
+vector.o: CX_BASE.h Makefile.freeBSD vector.cpp
+	../update vector.cpp
+	${CC} -c $(CFLAGS) vector.cpp
+
+schema.o: CX_BASE.h Makefile.freeBSD schema.cpp
+	../update schema.cpp
+	${CC} -c $(CFLAGS) schema.cpp
+
+repair.o: CX_BASE.h Makefile.freeBSD repair.cpp
+	../update repair.cpp
+	${CC} -c $(CFLAGS) repair.cpp
+
+Ttree.o: CX_BASE.h Makefile.freeBSD Ttree.h Ttree.cpp
+	../update Ttree.cpp
+	${CC} -c $(CFLAGS) Ttree.cpp
+
+storage.o: CX_BASE.h Makefile.freeBSD Ttree.h storage.cpp
+	../update storage.cpp
+	${CC} -c $(CFLAGS) storage.cpp

@@ -1,0 +1,230 @@
+li|ansi|ansi80x25|Ansi standard crt:\
+	:al=\E[L:am:bs:cd=\E[J:ce=\E[K:cl=\E[2J\E[H:cm=\E[%i%d;%dH:co#80:\
+	:dc=\E[P:dl=\E[M:do=\E[B:bt=\E[Z:ei=:ho=\E[H:ic=\E[@:im=:li#25:\
+	:nd=\E[C:pt:so=\E[7m:se=\E[m:us=\E[4m:ue=\E[m:up=\E[A:\
+	:kb=^h:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:eo:sf=\E[S:sr=\E[T:\
+	:mb=\E[5m:md=\E[1m:me=\E[m:\
+	:GS=\E[12m:GE=\E[10m:GV=\63:GH=D:\
+	:GC=E:GL=\64:GR=C:RT=^J:G1=?:G2=Z:G3=@:G4=Y:G5=;:G6=I:G7=H:G8=<:\
+	:Gc=N:Gd=K:Gh=M:Gl=L:Gu=J:Gv=\072:\
+	:GU=A:GD=B:\
+	:HM=\E[H:EN=\E[F:PU=\E[I:PD=\E[G:\
+	:kP=\E[I:kN=\E[G:\
+	:CW=\E[M:NU=\E[N:RF=\E[O:RC=\E[P:\
+	:WL=\E[S:WR=\E[T:CL=\E[U:CR=\E[V:\
+	:kh=\E[H:@7=\E[F:kI=\E[L:\
+	:k1=\E[M:k2=\E[N:k3=\E[O:k4=\E[P:k5=\E[Q:k6=\E[R:\
+	:k7=\E[S:k8=\E[T:k9=\E[U:k0=\E[V:F1=\E[W:F2=\E[X:kC=\E[k:fl=\E[E:\
+	:ct#2:Nf#16:Nb#16:C2:bb=\E[=1A:bf=\E[=0A:\
+	:Mf=0123456709ABCDEF:Mb=0123456709ABCDEF:Cf=\E[2;%d;%dm:
+
+ansic:CT:tc=ansi:
+
+pc|ibmpc|ibm pc PC/IX:\
+	:li#25:co#80:am@:bs:bw:eo:\
+	:cd=\E[J:ce=\E[K:cl=\Ec:cm=\E[%i%2;%2H:do=\E[B:ho=\E[;H:\
+	:nd=\E[C:up=\E[A:so=\E[7m:se=\E[0m:us=\E[4m:ue=\E[0m:\
+	:dc=\E[P:al=\E[L:dl=\E[M:do=\E[B:ic=\E[@:\
+	:kh=\E[H:@7=\E[F:kP=\E[I:kN=\E[G:kI=\E[L:\
+	:k1=\E[M:k2=\E[N:k3=\E[O:k4=\E[P:k5=\E[Q:\
+	:k6=\E[R:k7=\E[S:k8=\E[T:k9=\E[U:k0=\E[V:\
+	:F1=\E[W:F2=\E[X:kC=\E[k:\
+	:CT#2:Nf#16:Nb#16:C2:bb=\E[=1A:bf=\E[=0A:\
+	:Co#8:Mf=0426153704261537:Mb=0426153704261537:\
+	:AF=\E[3%dm:AB=\E[4%dm:
+
+pc3|ibmpc3|IBM PC 386BSD Console:\
+	:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:tc=pc:
+pc4|cons25:\
+	:Co#8:Mf=0426153704261537:Mb=0426153704261537:\
+	:Nf#8:Nb#8:tc=ibmpc3:
+
+applet|unixspace:\
+	:Co#256:AF=\E[%df:AB=\E[%db:Sf=\E[%df:Sb=\E[%db:\
+	:CT#15:Nf#32:Nb#32:\
+	:Ca=\E[2m:Cb=\E[3m:Cn=\E[6m:\
+	:CX=\E[%dm:\
+	:PU=\E[5~:PD=\E[6~:EN=\E[8~:IN=\E[2~:HM=\E[7~:\
+	:k0=\E[21~:kA=\E[23~:kB=\E[24~:tc=applet_new:
+
+applet_new:\
+	:@7=\E[8~:\
+	:Ic=\E[%d;%d;%d;%dI:\
+	:oc=\E[I:\
+	:Ft=\E?%d;%df:\
+	:Sa=\E[%d;%d;%d;%d;%dY:\
+	:Ea=\E[%d;%d;%d;%dE:\
+	:Ia=\E[%d;%d;%d;%d;%dL:\
+	:Da=\E[%d;%d;%d;%d;%dM:\
+	:Gg=\E[Z:\
+	:Po=\E?%s*:\
+	:Pc=\E?%s`:\
+	:Pi=\E?7;%d;%d;%d;%d\"%s=%s\";%d*:\
+	:Ro=\E?%d;%d;%d$:\
+	:ro=\E?%d$:\
+	:Sd=\E?\"%s\"&:\
+	:Ns=\E?%d;%d;%d;%d;%d;%d;%d>:\
+	:Cs=\E?%d<:\
+	:Pv=\E[%d;%dy:\
+	:Rl=\E[%dv:\
+	:Bw=\E[%d;%d;%d;%d;%dX:\
+	:Pl=\E[%d;%d;%d;%d;%dx:\
+	:Fr=\E[%da:\
+	:DA=\E[%d;%dw:\
+	:SD=\E[%d;%d;%d;%dz:\
+	:JM=\E#%s|:\
+	:tc=vt320:
+
+vt320:\
+	:k0=\E[21~:k1=\EOP:k2=\EOQ:k3=\EOR:k4=\EOS:\
+	:k5=\E[15~:k6=\E[17~:k7=\E[18~:k8=\E[19~:k9=\E[20~:kb=\b:\
+	:F1=\E[23~:F2=\E[24~:\
+	:kP=\E[5~:kN=\E[6~:kh=\E[7~:@7=\E[8~:kI=\E[2~:\
+	:im=:ei=:mi@:ic=\E[@:\
+	:am@:\
+	:bs:cd=\E[J:ce=\E[K:cm=\E[%i%d;%dH:co#88:li#25:\
+	:cs=\E[%i%d;%dr:ct=\E[3k:\
+	:dc=\E[P:al=\E[L:dl=\E[M:\
+	:im=\E[4h:ei=\E[4l:mi:\
+	:ho=\E[H:\
+	:kb=^H:ke=\E[?1l\E>:\
+	:kl=\E[D:kr=\E[C:ku=\E[A:kd=\E[B:\
+	:km:kn#8:\
+	:me=\E[m:ms:nd=\E[C:pt:\
+	:sc=\E7:rc=\E8:sf=\n:so=\E[7m:se=\E[9m:sr=\EM:\
+	:up=\E[A:us=\E[4m:ue=\E[10m:xn:\
+	:CT#15:Nf#32:Nb#32:\
+	:Ca=\E[2m:Cb=\E[3m:Cn=\E[6m:\
+	:CX=\E[%dm:AF=\E[%dm:AB=\E[%dm:
+
+xterm|vs100|xterm terminal emulator (X Window System, X11R6):\
+	:k0=\E[21~:k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~:\
+	:k5=\E[15~:k6=\E[17~:k7=\E[18~:k8=\E[19~:k9=\E[20~:kb=\b:\
+	:F1=\E[23~:F2=\E[24~:\
+	:kD=\E[5~:kN=\E[6~:kh=\E[8~:@7=\E[7~:kI=\E[2~:kh=\E[8~:\
+	:im=:ei=:mi@:ic=\E[@:\
+	:am:\
+	:bs:cd=\E[J:ce=\E[K:cm=\E[%i%d;%dH:co#80:\
+	:cs=\E[%i%d;%dr:ct=\E[3k:\
+	:dc=\E[P:dl=\E[M:\
+	:im=\E[4h:ei=\E[4l:mi:\
+	:ho=\E[H:\
+	:kb=^H:ke=\E[?1l\E>:\
+	:kl=\E[D:kr=\E[C:ku=\E[A:kd=\E[B:\
+	:km:kn#8:\
+	:li#25:md=\E[1m:me=\E[m:mr=\E[7m:ms:nd=\E[C:pt:\
+	:sc=\E7:rc=\E8:sf=\n:so=\E[7m:se=\E[m:sr=\EM:\
+	:up=\E[A:us=\E[4m:ue=\E[m:xn:\
+	:CT#2:Nf#16:Nb#16:\
+	:Mf=0123456701234567:Mb=0123456701234567:AF=\E[3%dm:AB=\E[4%dm:
+
+IH|hft|AIWS High Function Terminal:\
+	:al=\E[L:cr=^M:do=^J:sf=^J:bl=^G:am:le=^H:cd=\E[J:\
+	:ce=\E[K:cl=\E[H\E[2J:cm=\E[%i%d;%dH:co#80:li#25:\
+	:dc=\E[P:dl=\E[M:ho=\E[H:kn=\r:\
+	:ic=\E[@:im=\E6:ei=\E6:\
+	:md=\E[1m:mr=\E[7m:mb=\E[5m:mk=\E[8m:me=\E[0m:\
+	:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:kh=\E[H:kb=^H:\
+	:nd=\E[C:ta=^I:up=\E[A:xo:\
+	:ue=\E[m:us=\E[4m:se=\E[m:so=\E[7m:\
+	:kP=\E[150q:kN=\E[154q:\
+	:kh=\E[H:@7=\E[146q:kD=\E[150q:kI=\E[139q:\
+	:k1=\E[001q:k2=\E[002q:k3=\E[003q:k4=\E[004q:\
+	:k5=\E[005q:k6=\E[006q:k7=\E[007q:k8=\E[008q:\
+	:k9=\E[009q:ka=\E[010q:k0=\E[010q:F1=\E[011q:F2=\E[012q:\
+	:CT#10:ct#10:Nf#16:Nb#16:de=\E[P:\
+	:Mf=0CAE9DB78426153F:Mb=0CAE9DB78426153F:AF=\E[%dm:AB=\E[%dm:
+
+vz|vt220|net-100:\
+	:al=\E[L:am@:bs:cd=\E[J:ce=\E[K:cl=\E[2J\E[H:cm=\E[%i%d;%dH:co#80:\
+	:dc=\E[P:dl=\E[M:do=\E[B:bt=\E[Z:ei=:ho=\E[H:ic=\E[@:im=:li#24:\
+	:nd=\E[C:pt:so=\E[7m:se=\E[m:us=\E[4m:ue=\E[m:up=\E[A:\
+	:kb=^h:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:eo:\
+	:kh=\E[2~:@7=\E[5~:kD=\E[3~:kN=\E[6~:kI=\E[1~:\
+	:k1=\E[17~:k2=\E[18~:k3=\E[19~:k4=\E[20~:k5=\E[21~:k6=\E[23~:\
+	:k7=\E[24~:k8=\E[25~:k9=\E[26~:k0=\E[28~:F1=\E[31~:F2=\E[29~:\
+	:kC=\E[32~:fl=\E[E:\
+	:CT#4:Nf#16:Nb#16:C2:\
+	:Mf=0123456709ABCDEF:Mb=0123456789BBCDEF:Cf=\E[2;%d;%dm:
+
+C2|vt100-ansi|vt100 ANSI mode:\
+	:al=\E[L:am@:bs:cd=\E[J:ce=\E[K:cl=\E[2J\E[H:cm=\E[%i%d;%dH:co#80:\
+	:dc=\E[P:dl=\E[M:do=\E[B:bt=\E[Z:ei=:ho=\E[H:ic=\E[@:im=:li#25:\
+	:nd=\E[C:pt:so=\E[7m:se=\E[m:us=\E[4m:ue=\E[m:up=\E[A:\
+	:kb=^h:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:eo:sf=\E[S:sr=\E[T:\
+	:mb=\E[5m:md=\E[1m:me=\E[m:\
+	:GS=\E[12m:GE=\E[10m:GV=\63:GH=D:\
+	:GC=E:GL=\64:GR=C:RT=^J:G1=?:G2=Z:G3=@:G4=Y:G5=;:G6=I:G7=H:G8=<:\
+	:Gc=N:Gd=K:Gh=M:Gl=L:Gu=J:Gv=\072:\
+	:GU=A:GD=B:\
+	:CW=\E[M:NU=\E[N:RF=\E[O:RC=\E[P:\
+	:WL=\E[S:WR=\E[T:CL=\E[U:CR=\E[V:\
+	:kh=\E[H:@7=\E[F:kD=\E[I:kN=\E[G:kI=\E[L:\
+	:k1=\E[M:k2=\E[N:k3=\E[O:k4=\E[P:k5=\E[Q:k6=\E[R:\
+	:k7=\E[S:k8=\E[T:k9=\E[U:k0=\E[V:F1=\E[W:F2=\E[X:kC=\E[k:fl=\E[E:\
+	:CT#5:Nf#16:Nb#16:C2:\
+	:Mf=0123456709ABCDEF:Mb=0123456789ABCDEF:Cf=\E[2;%d;%dm:
+
+C1|vt52C|vt-52-DEC/COMMON:\
+	:co#80:li#24:cm=\EY%+ %+ :\
+	:is=\EH\EJ:ks=\E=:ke=\E>:bs:cd=\EJ:ce=\EK:cl=\EH\EJ:ho=\EH:pt:\
+	:sr=\EI:up=\EA:do=\EB:nd=\EC:\
+	:ku=\EA:kd=\EB:kl=\ED:kr=\EC:\
+	:ko=ER,k.,k-:k0=\E?p:k1=\E?q:k2=\E?r:k3=\E?s:k4=\E?t:k5=\E?u:\
+	:k6=\E?v:k7=\E?w:k8=\E?x:k9=\E?y:F1=\E?n:F2=\E?M:\
+	:cu=\EFa\EG:kh=\EP:\
+	:CT#0:
+
+wyse370|Wyse370:\
+	:li#25:co#80:am:bs:bw:eo:\
+	:cd=\E[J:ce=\E[K:cl=\Ec:cm=\E[%i%2;%2H:do=\E[B:ho=\E[;H:\
+	:nd=\E[C:up=\E[A:so=\E[7m:se=\E[0m:us=\E[4m:ue=\E[0m:\
+	:dc=\E[P:al=\E[L:dl=\E[M:do=\E[B:ic=\E[@:\
+	:kh=\E[H:@7=\E[F:kD=\E[I:kN=\E[G:kI=\E[L:\
+	:k1=\E[M:k2=\E[N:k3=\E[O:k4=\E[P:k5=\E[Q:\
+	:k6=\E[R:k7=\E[S:k8=\E[T:k9=\E[U:k0=\E[V:\
+	:F1=\E[W:F2=\E[X:kC=\E[k:\
+	:CT#0:Nf#1:Nb#1:C2:bb=\E[=1A:bf=\E[=0A:\
+	:Mf=0123456789ABCDEF:Mb=0123456789ABCDEF:AF=\E[=%dF:AB=\E[=%dG:
+
+linux|linux-lat|linux console:\
+	:am@:eo:mi:ms:xn:xo:\
+	:it#8:co#80:li#25:is=\E[0m\E[11m\E%@:\
+	:AL=\E[%dL:DC=\E[%dP:DL=\E[%dM:IC=\E[%d@:K2=\E[G:al=\E[L:\
+	:bl=^G:cd=\E[J:ce=\E[K:cl=\E[H\E[J:cm=\E[%i%d;%dH:cr=^M:\
+	:cs=\E[%i%d;%dr:ct=\E[3g:dc=\E[P:dl=\E[M:do=^J:ec=\E[%dX:\
+	:ei=\E[4l:ho=\E[H:ic=\E[@:im=\E[4h:k1=\E[[A:k2=\E[[B:\
+	:k3=\E[[C:k4=\E[[D:k5=\E[[E:k6=\E[17~:k7=\E[18~:k8=\E[19~:\
+	:k9=\E[20~:k0=\E[21~:F1=\E[23~:F2=\E[24~:\
+	:kD=\E[3~:kI=\E[2~:kN=\E[6~:kP=\E[5~:kb=\177:\
+	:kd=\E[B:kh=\E[1~:kH=\E[4~:@7=\E[4~:*6=\E[4~:\
+	:kl=\E[D:kr=\E[C:ku=\E[A:le=^H:mh=\E[2m:\
+	:kh=\E[1~:@7=\E[4~:kI=\E[2~:DE=\E[3~:\
+	:mr=\E[7m:nd=\E[C:nw=^M^J:rc=\E8:sc=\E7:se=\E[27m:sf=^J:\
+	:sr=\EM:st=\EH:ta=^I:ue=\E[24m:up=\E[A:us=\E[4m:\
+	:vb=200\E[?5h\E[?5l:\
+	:Co#8:NC#3:pa#64:\
+	:CT#11:Nf#16:Nb#16:Mf=042615378CAE9DBF:Mb=0426150704261537:\
+	:AF=\E[3%dm:AB=\E[4%dm:Cf=\E[3%dm\E[4%dm:
+
+linux-m|Linux console no color:\
+	:Co@:pa@:\
+	:AB@:AF@:Sb@:Sf@:tc=linux:
+
+# ANSI.SYS color control.  The setab/setaf caps depend on the coincidence
+# between SVr4/XPG4's color numbers and ANSI.SYS attributes.  Here are longer
+# but equivalent strings that don't rely on that coincidence:
+# setb=\E[4%?%p1%{1}%=%t4%e%p1%{3}%=%t6%e%p1%{4}%=%t1%e%p1%{6}%=%t3%e%p1%d%;m,
+# setf=\E[3%?%p1%{1}%=%t4%e%p1%{3}%=%t6%e%p1%{4}%=%t1%e%p1%{6}%=%t3%e%p1%d%;m,
+# The DOS 5 manual asserts that these sequences meet the ISO 6429 standard.
+# They match a subset of ECMA-48.
+klone+color|color control for ansi.sys and ISO6429-compatible displays:\
+	:Co#8:NC#3:pa#64:\
+	:AB=\E[4%p1%dm:AF=\E[3%p1%dm:op=\E[37;40m:
+
+# This is better than klone+color, it doesn't assume white-on-black as the
+# default color pair,  but many `ANSI' terminals don't grok the <op> cap.
+
+ecma+color|color control for ECMA-48-compatible terminals:\
+	:Co#8:NC#3:pa#64:\
+	:AB=\E[4%p1%dm:AF=\E[3%p1%dm:op=\E[39;49m:

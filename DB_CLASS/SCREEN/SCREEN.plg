@@ -1,0 +1,49 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SCREEN - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\san\LOCALS~1\Temp\RSP1AA.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/SCREEN.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"E:\mnt\V.5.7\SCREEN\boxes.cpp"
+"E:\mnt\V.5.7\SCREEN\io.cpp"
+"E:\mnt\V.5.7\SCREEN\read.cpp"
+"E:\mnt\V.5.7\SCREEN\screen.cpp"
+"E:\mnt\V.5.7\SCREEN\termcap.cpp"
+"E:\mnt\V.5.7\SCREEN\terminal.cpp"
+"E:\mnt\V.5.7\SCREEN\tgoto.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\san\LOCALS~1\Temp\RSP1AA.tmp" 
+Creating temporary file "C:\DOCUME~1\san\LOCALS~1\Temp\RSP1AB.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/SCREEN.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"E:\mnt\V.5.7\SCREEN\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\san\LOCALS~1\Temp\RSP1AB.tmp" 
+Creating command line "link.exe -lib /nologo /out:"Release\cxscr.lib"  .\Release\boxes.obj .\Release\io.obj .\Release\read.obj .\Release\screen.obj .\Release\StdAfx.obj .\Release\termcap.obj .\Release\terminal.obj .\Release\tgoto.obj "
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+boxes.cpp
+io.cpp
+read.cpp
+screen.cpp
+termcap.cpp
+E:\mnt\V.5.7\SCREEN\termcap.cpp(50) : warning C4101: 'cp2' : unreferenced local variable
+terminal.cpp
+tgoto.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+cxscr.lib - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>
