@@ -1,0 +1,10 @@
+CC=g++ -O2 -DBSD  -I../..
+LIB= -L../.. -lcxdb -lcxform -ldp -L/usr/X11R6/lib -lX11
+
+all:    Methods
+
+Methods.o:        Methods.cpp
+	${CC} -c $(CFLAGS) Methods.cpp
+
+Methods:        Methods.o
+	${CC} Methods.o $(LIB) -lpthread -o Methods; strip Methods

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/local/bin/cx6 -N/usr/local/lib/CX_Adm -I$1

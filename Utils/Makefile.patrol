@@ -1,0 +1,76 @@
+CC=g++ -I.. -DBSD -g -DPATROL
+DST=/usr/local/bin
+
+X11=$(shell ../X11check)
+ifeq "$(X11)" "YES"
+CC+=-DX11R6
+XLIB=-L/usr/X11R6/lib -lX11
+endif
+
+TARGET=Create_Form Create_DB Form_to_Blank Blank_to_Form CX_repair CX_restore
+LIB= -L.. -lcx -lcxform -lcxdb -ldp $(XLIB) -lpthread -lmpatrol -lbfd -liberty
+
+all:    $(TARGET) CX_Adm/Methods
+
+install:
+	cp $(TARGET) $(DST)
+	rm -f CX_Adm/Methods.o
+	tar -cf - CX_Adm | (cd /usr/local/lib; tar -xf - );
+	ln -fs /usr/local/bin/Create_DB /usr/local/bin/CX_Edit
+	cp cxadm /usr/local/bin
+
+
+Create_Form: Create_Form.o ../ConteXt.h ../CX_BASE.h ../CX_Browser.h ../libcxdb.a
+	$(CC) $(CFLAGS) Create_Form.o $(LIB) -o Create_Form
+
+Create_DB: Create_DB.o ../ConteXt.h ../CX_BASE.h ../CX_Browser.h ../libcxdb.a
+	$(CC) $(CFLAGS) Create_DB.o $(LIB) -o Create_DB
+
+Form_to_Blank: Form_to_Blank.o ../ConteXt.h ../CX_BASE.h ../CX_Browser.h ../libcxdb.a
+	$(CC) $(CFLAGS) Form_to_Blank.o $(LIB) -o Form_to_Blank
+
+Blank_to_Form: Blank_to_Form.o ../ConteXt.h ../CX_BASE.h ../CX_Browser.h ../libcxdb.a ../libcx.a
+	$(CC) $(CFLAGS) Blank_to_Form.o $(LIB) -lcx -o Blank_to_Form
+
+
+CX_repair: CX_repair.o ../ConteXt.h ../CX_BASE.h  ../libcxdb.a
+	$(CC) CX_repair.o $(LIB) -o CX_repair
+
+CX_restore: CX_restore.o ../ConteXt.h ../CX_BASE.h  ../libcxdb.a
+	$(CC) CX_restore.o $(LIB) -o CX_restore
+
+
+.cc.o:  ../ConteXt.h ../CX_BASE.h ../CX_Browser.h
+	${CC}  -c $(CFLAGS)  ${.IMPSRC}
+
+Create_Form.o:  Create_Form.cc ../ConteXt.h ../CX_BASE.h ../CX_Browser.h
+	../update Create_Form.cc
+	${CC} -c $(CFLAGS) Create_Form.cc
+
+Create_DB.o:  Create_DB.cc ../ConteXt.h ../CX_BASE.h ../CX_Browser.h
+	../update Create_DB.cc
+	${CC} -c $(CFLAGS) Create_DB.cc
+
+Form_to_Blank.o:  Form_to_Blank.cc ../ConteXt.h ../CX_BASE.h ../CX_Browser.h
+	../update Form_to_Blank.cc
+	${CC} -c $(CFLAGS) Form_to_Blank.cc
+
+Blank_to_Form.o:  Blank_to_Form.cc ../ConteXt.h ../CX_BASE.h ../CX_Browser.h
+	../update Blank_to_Form.cc
+	${CC} -c $(CFLAGS) Blank_to_Form.cc
+
+CX_repair.o:  CX_repair.cc ../ConteXt.h ../CX_BASE.h ../CX_Browser.h
+	../update CX_repair.cc
+	${CC} -c $(CFLAGS) CX_repair.cc
+
+CX_restore.o:  CX_repair.cc ../ConteXt.h ../CX_BASE.h ../CX_Browser.h
+	../update CX_restore.cc
+	${CC} -c $(CFLAGS) CX_restore.cc
+
+CX_Adm/Methods: CX_Adm/Methods.cc
+	cd CX_Adm; make -f Makefile.linux
+
+clean:
+	rm -f $(TARGET)
+	rm -f CX_Adm/Methods
+	rm -f *.o
