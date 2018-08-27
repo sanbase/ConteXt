@@ -1,0 +1,57 @@
+OBJ=    form.o browser.o dir.o messages.o structure.o menu.o utils.o repair.o make_class.o make_form.o
+ 
+ 
+ 
+CC=g++ -O2 -I.. 
+LIB=../libcxform.a 
+ 
+all:    $(LIB) 
+ 
+form.o: ../DB_CLASS/ConteXt.h ../DB_CLASS/CX_BASE.h ../CX_Browser.h form.cpp
+	../update form.cpp
+	${CC} -c $(CFLAGS) form.cpp
+ 
+browser.o: ../DB_CLASS/ConteXt.h ../DB_CLASS/CX_BASE.h ../CX_Browser.h browser.cpp
+	../update browser.cpp
+	${CC} -c $(CFLAGS) browser.cpp
+ 
+dir.o: ../DB_CLASS/ConteXt.h ../DB_CLASS/CX_BASE.h ../CX_Browser.h dir.cpp
+	../update dir.cpp
+	${CC} -c $(CFLAGS) dir.cpp
+ 
+structure.o: ../DB_CLASS/ConteXt.h ../DB_CLASS/CX_BASE.h ../CX_Browser.h structure.cpp
+	../update structure.cpp
+	${CC} -c $(CFLAGS) structure.cpp
+ 
+messages.o: ../DB_CLASS/ConteXt.h ../DB_CLASS/CX_BASE.h ../CX_Browser.h messages.cpp
+	../update messages.cpp
+	${CC} -c $(CFLAGS) messages.cpp
+ 
+menu.o: ../DB_CLASS/ConteXt.h ../DB_CLASS/CX_BASE.h ../CX_Browser.h menu.cpp
+	../update menu.cpp
+	${CC} -c $(CFLAGS) menu.cpp
+ 
+utils.o: ../DB_CLASS/ConteXt.h ../screen.h ../CX_Browser.h utils.cpp
+	../update utils.cpp
+	${CC} -c $(CFLAGS) utils.cpp
+ 
+repair.o: ../DB_CLASS/ConteXt.h ../screen.h ../CX_Browser.h repair.cpp
+	../update repair.cpp
+	${CC} -c $(CFLAGS) repair.cpp
+ 
+make_class.o: ../DB_CLASS/ConteXt.h ../screen.h ../CX_Browser.h make_class.cpp
+	../update make_class.cpp
+	${CC} -c $(CFLAGS) make_class.cpp
+ 
+make_form.o: ../DB_CLASS/ConteXt.h ../screen.h ../CX_Browser.h make_form.cpp
+	../update make_form.cpp
+	${CC} -c $(CFLAGS) make_form.cpp
+ 
+.c.o:   ../DB_CLASS/ConteXt.h ../DB_CLASS/CX_BASE.h ../CX_Browser.h
+	${CC} -c ${.IMPSRC}
+.cpp.o:  ../DB_CLASS/ConteXt.h ../DB_CLASS/CX_BASE.h ../CX_Browser.h
+	${CC}  -c  ${.IMPSRC}
+ 
+$(LIB): ../DB_CLASS/ConteXt.h ../DB_CLASS/CX_BASE.h ../CX_Browser.h $(OBJ)
+	ar crv $(LIB) $(OBJ)
+	ranlib $(LIB)

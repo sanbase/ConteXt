@@ -1,0 +1,41 @@
+OBJ=    form.o browser.o dir.o messages.o structure.o menu.o 
+ 
+ 
+ 
+CC=/opt/SUNWspro/bin/CC -I.. -g -DSPARC -DVER=6 -fhandle-exceptions 
+LIB=../libcxform.a 
+ 
+all:    $(LIB) 
+ 
+form.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h form.cpp 
+	../update form.cpp 
+	${CC} -c $(CFLAGS) form.cpp 
+ 
+browser.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h browser.cpp 
+	../update browser.cpp 
+	${CC} -c $(CFLAGS) browser.cpp 
+ 
+dir.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h dir.cpp 
+	../update dir.cpp 
+	${CC} -c $(CFLAGS) dir.cpp 
+ 
+structure.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h structure.cpp 
+	../update structure.cpp 
+	${CC} -c $(CFLAGS) structure.cpp 
+ 
+messages.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h messages.cpp 
+	../update messages.cpp 
+	${CC} -c $(CFLAGS) messages.cpp 
+ 
+menu.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h menu.cpp 
+	../update menu.cpp 
+	${CC} -c $(CFLAGS) menu.cpp 
+ 
+.c.o:   ../ConteXt.h ../CX_BASE.h ../CX_Browser.h 
+	${CC} -c ${.IMPSRC} 
+.cpp.o:  ../ConteXt.h ../CX_BASE.h ../CX_Browser.h 
+	${CC}  -c  ${.IMPSRC} 
+ 
+$(LIB): ../ConteXt.h ../CX_BASE.h ../CX_Browser.h $(OBJ) 
+	ar crv $(LIB) $(OBJ) 
+	ranlib $(LIB) 

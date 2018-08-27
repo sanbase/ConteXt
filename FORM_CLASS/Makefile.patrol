@@ -1,0 +1,36 @@
+OBJ=    form.o browser.o dir.o messages.o structure.o 
+ 
+ 
+CC=g++ -g -I.. -DPATROL 
+LIB=../libcxform.a 
+ 
+all:    $(LIB) 
+ 
+form.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h form.cc 
+	../update form.cc 
+	${CC} -c $(CFLAGS) form.cc 
+ 
+browser.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h browser.cc 
+	../update browser.cc 
+	${CC} -c $(CFLAGS) browser.cc 
+ 
+dir.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h dir.cc 
+	../update dir.cc 
+	${CC} -c $(CFLAGS) dir.cc 
+ 
+structure.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h structure.cc 
+	../update structure.cc 
+	${CC} -c $(CFLAGS) structure.cc 
+ 
+messages.o: ../ConteXt.h ../CX_BASE.h ../CX_Browser.h messages.cc 
+	../update messages.cc 
+	${CC} -c $(CFLAGS) messages.cc 
+ 
+.c.o:   ../ConteXt.h ../CX_BASE.h ../CX_Browser.h 
+	${CC} -c ${.IMPSRC} 
+.cc.o:  ../ConteXt.h ../CX_BASE.h ../CX_Browser.h 
+	${CC}  -c  ${.IMPSRC} 
+ 
+$(LIB): ../ConteXt.h ../CX_BASE.h ../CX_Browser.h $(OBJ) 
+	ar crv $(LIB) $(OBJ) 
+	ranlib $(LIB) 
