@@ -1,0 +1,27 @@
+#!/bin/sh
+
+if [ ! -r /unixspace ]; then
+	mkdir /unixspace
+fi
+
+if [ ! -r $1 ]; then
+	mkdir $1
+fi
+
+if [ ! -r $1/Files ]; then
+	mkdir $1/Files
+fi
+
+if [ ! -r $1/Images ]; then
+	mkdir $1/Images
+fi
+
+if [ ! -r $1/Images/CX ]; then
+	mkdir $1/Images/CX
+fi
+
+if [ ! -r $1/../cgi-bin ]; then
+	mkdir $1/../cgi-bin
+fi
+
+cp Images/CX/* $1/Images/CX;
