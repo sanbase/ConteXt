@@ -1,0 +1,38 @@
+	     Extended Esc-sequences for UnixSpace terminal
+-------------------------------------------------------------------------------------
+
+Ic 16 setup color       "\E[%d;%d;%d;%dI",num_color,red,green,blue (from 0 to 255)
+ve 18 cursor visible     \E?25h
+vi 19 cursof invisible   \E[25l
+Sa 20 grey/color area   "\E[%d;%d;%d;%d;%dY:",x0,y0,x1,y1,atr(if atr==1-grey,atr==0-normal)
+Ft 21 font setting      "\E?%d;%df:",font_number,font_attr(|1=italic, |2=bold)
+AF 22 foreground color  "\E[%df",color
+AB 23 background color  "\E[%db",color
+
+Ea 24 erase rectangle area     "\E[%d;%d;%d;%dE",x0,y0,x1,y1 <- rectangle coord
+Ia 25 insert line in area      "\E[%d;%d;%d;%d;%dL",x0,y0,x1,y1,num_lines
+Da 26 delete line from area    "\E[%d;%d;%d;%d;%dM",x0,y0,x1,y1,num_lines
+AL 27 insert lines             "\E[%dL",num_lines
+DL 28 delete lines             "\E[%dM",num_lines
+
+Gg 29 get geometry \E[Z -> receive:"%d;%d;%d;%dH",&Font_W,&Font_H,&Screen_W,&Screen_H
+
+Po 30 put object        - see source. It's too hard for explanation...
+Pc 31 put object in terminal coordinates
+
+Pi 32 put image         "\E?7;%d;%d;%d;%d;\"%s=%s\"%d*:",x,y,l,w,URL,description,no_transparent
+			if(l!=0 && w!=0) == Stretch mode
+
+Ro 33 remove object     "\E?%d;%d;%d$",object_type,object_coordinate_x,object_coordinate_y
+ro 34 remove all objects "\E?%d$:",object_type
+Sd 36 show document     "\E?\"%s\"&",URL
+Ns 37 create new screen "\E?%d;%d;%d;%d;%d;%d;%d>",x,y,columns,lines,num,width,height
+Cs 38 switch screen     "\E?%d<",screen_number
+Pv 39 put vector        "\E[%d;%dy",x,y
+Rl 40 remove last object "\E[%dv",object_type
+DA 43 draw arc          "\E[%d;%dw",arc,color
+Fr 44 setup frame       "\E[%da",color
+Ca 45 symbol frame 1    \E[2m
+Cb 46 symbol frame 2    \E[3m
+Cn 47 symbol frame 3    \E[6m
+SD 49 setup dimension   "\E[%d;%d;%d;%dz",x,y,w,h

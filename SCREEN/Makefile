@@ -1,0 +1,33 @@
+N      = cxscr
+LIBR   = ..
+DESTDIR= /usr/local
+LIB    = $(DESTDIR)/lib
+
+CC=g++ -O2 -I. -I/usr/local/include -Wall
+
+OBJ= terminal.o termcap.o tgoto.o io.o screen.o tty.o read.o boxes.o
+
+.cpp.o:  screen.h
+	${CC}  -c ${.IMPSRC}
+
+all:    $(LIBR)/lib$(N).a tmp_read test
+
+clean:
+	rm -f *.o;
+	rm -f $(LIBR)/lib$(N).a tmp_read test
+
+install:  $(LIBR)/lib$(N).a
+	cp $(LIBR)/lib$(N).a /usr/local/lib
+	cp termcap /usr/local/etc
+	cp tmp_read /var/www/cgi-bin/
+
+$(LIBR)/lib$(N).a:  $(OBJ)
+	ar crv $(LIBR)/lib$(N).a $(OBJ)
+	ranlib $(LIBR)/lib$(N).a
+
+
+test.o: test.cc
+	${CC} -I. -c ${.IMPSRC}
+
+test:   test.o
+	${CC} test.o $(LIBR)/lib$(N).a -o test
