@@ -1,2 +1,2 @@
 # ConteXt
-Object-oriented DBMS for Unix (FreeBSD.Linux) platform
+Object-oriented DBMS for Unix (FreeBSD/Linux) platform
